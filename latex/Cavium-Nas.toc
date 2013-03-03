@@ -1,0 +1,47 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Welcome to Cavium NAS targeted for Small Office Home Office segment.}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2}features}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Availability}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Contact}{3}{section.1.4}
+\contentsline {chapter}{\numberline {2}Status and Responses}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Status Codes}{5}{section.2.1}
+\contentsline {section}{\numberline {2.2}Error Messages}{5}{section.2.2}
+\contentsline {chapter}{\numberline {3}Storage}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}iSCSI}{7}{section.3.1}
+\contentsline {chapter}{\numberline {4}Disks}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Disk Object}{9}{section.4.1}
+\contentsline {section}{\numberline {4.2}GET - Disks}{10}{section.4.2}
+\contentsline {section}{\numberline {4.3}PUT - Claim Disk}{11}{section.4.3}
+\contentsline {section}{\numberline {4.4}POST - Eject Disk}{11}{section.4.4}
+\contentsline {chapter}{\numberline {5}Volumes}{13}{chapter.5}
+\contentsline {section}{\numberline {5.1}Volume Object}{13}{section.5.1}
+\contentsline {section}{\numberline {5.2}GET Volumes}{15}{section.5.2}
+\contentsline {section}{\numberline {5.3}POST - Create Volume}{15}{section.5.3}
+\contentsline {section}{\numberline {5.4}DELETE - Delete Volume}{15}{section.5.4}
+\contentsline {section}{\numberline {5.5}PUT - Edit Volume}{15}{section.5.5}
+\contentsline {section}{\numberline {5.6}PUT - Migrate Volume}{16}{section.5.6}
+\contentsline {section}{\numberline {5.7}PUT - Extend Volume}{16}{section.5.7}
+\contentsline {section}{\numberline {5.8}PUT - Recover Volume}{16}{section.5.8}
+\contentsline {chapter}{\numberline {6}Shares}{17}{chapter.6}
+\contentsline {section}{\numberline {6.1}Share Object}{17}{section.6.1}
+\contentsline {section}{\numberline {6.2}GET Shares}{21}{section.6.2}
+\contentsline {section}{\numberline {6.3}POST - Create Share}{21}{section.6.3}
+\contentsline {section}{\numberline {6.4}DELETE - Delete Share}{22}{section.6.4}
+\contentsline {section}{\numberline {6.5}PUT - Edit Share}{22}{section.6.5}
+\contentsline {chapter}{\numberline {7}Users and Groups}{23}{chapter.7}
+\contentsline {section}{\numberline {7.1}User Object}{23}{section.7.1}
+\contentsline {section}{\numberline {7.2}GET Users}{23}{section.7.2}
+\contentsline {section}{\numberline {7.3}POST - Create User}{24}{section.7.3}
+\contentsline {section}{\numberline {7.4}DELETE - Delete User}{24}{section.7.4}
+\contentsline {section}{\numberline {7.5}PUT - Edit User}{24}{section.7.5}
+\contentsline {section}{\numberline {7.6}Group Object}{24}{section.7.6}
+\contentsline {section}{\numberline {7.7}GET Groups}{25}{section.7.7}
+\contentsline {section}{\numberline {7.8}POST - Create Group}{25}{section.7.8}
+\contentsline {section}{\numberline {7.9}DELETE - Delete Group}{25}{section.7.9}
+\contentsline {section}{\numberline {7.10}PUT - Edit Group}{25}{section.7.10}
+\contentsline {chapter}{\numberline {8}Network}{27}{chapter.8}
+\contentsline {section}{\numberline {8.1}Network Object}{27}{section.8.1}
+\contentsline {section}{\numberline {8.2}GET Network}{28}{section.8.2}
+\contentsline {section}{\numberline {8.3}PUT - Edit Network}{28}{section.8.3}
+\contentsline {chapter}{\numberline {9}Indices and tables}{29}{chapter.9}

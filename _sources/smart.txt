@@ -1,0 +1,38 @@
+.. _smart-test-object-label:
+
+==========
+Smart test
+==========
+
+Smart Test Object
+-----------------
+
+The following represents a smart test object::
+
+    [
+     {
+        "smart_status": "",
+        "progress": ""
+     }   
+    ]  
+    
+**Smart Object Details**
+
++----------------+----------------------------------------------------------+
+| Name           | Value                                                    |
+|                |                                                          |
++================+==========================================================+
+| smart_status   | The current  smart test status                           |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| progress       | The current smart test progress details                  |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+
+.. note::
+   
+   This api is only for getting status details of current test. When ever disk loads the same
+   status details is available in disk object.
+   
+   * :ref:`disks-label`
+
