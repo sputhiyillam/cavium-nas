@@ -38,7 +38,7 @@ The following represents a disk object::
         "serial": "",
         "smart": {
             "enabled": true,
-            "status": "",
+            "smart_status": "",
             "progress":""
         },
         "actions": {

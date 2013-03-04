@@ -51,6 +51,10 @@
   <ul>
 <li><a class="reference internal" href="#">iSCSI</a><ul>
 <li><a class="reference internal" href="#iscsi-object">iSCSI Object</a></li>
+<li><a class="reference internal" href="#get-iscsi-shares">GET iSCSI Shares</a></li>
+<li><a class="reference internal" href="#post-create-iscsi-share">POST - Create iSCSI Share</a></li>
+<li><a class="reference internal" href="#delete-delete-iscsi-share">DELETE - Delete iSCSI Share</a></li>
+<li><a class="reference internal" href="#put-edit-iscsi-share">PUT - Edit iSCSI Share</a></li>
 </ul>
 </li>
 </ul>
@@ -126,6 +130,158 @@
 <span class="p">]</span>
 </pre></div>
 </div>
+<p><strong>Storage Object Details</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="15%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head" colspan="2">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>iSCSI</td>
+<td colspan="2">Internet Small Computer Systems Interface (iSCSI)</td>
+</tr>
+<tr class="row-odd"><td>id</td>
+<td colspan="2">The primary key unique id by which the iscsi target share
+can be identified</td>
+</tr>
+<tr class="row-even"><td>target</td>
+<td colspan="2">Target of iSCSI share</td>
+</tr>
+<tr class="row-odd"><td>size</td>
+<td colspan="2">Size of the iSCSI share</td>
+</tr>
+<tr class="row-even"><td>volume</td>
+<td colspan="2">Volume of creatd iSCSI share</td>
+</tr>
+<tr class="row-odd"><td>header-digest</td>
+<td colspan="2"><strong>Boolean</strong> value which tells whether the header digest
+is enabled or not.</td>
+</tr>
+<tr class="row-even"><td>data-digest</td>
+<td colspan="2"><strong>Boolean</strong> value which tells whether the data digest
+is enabled or not.</td>
+</tr>
+<tr class="row-odd"><td rowspan="4">one-way-chap</td>
+<td colspan="2"><blockquote class="first">
+<div>With this level of security,</div></blockquote>
+<p class="last">only the iSCSI target authenticates the initiator.
+The secret is set just for the target. All initiators
+that want to access that target need to use the same
+secret to start a logon session with the target.</p>
+</td>
+</tr>
+<tr class="row-even"><td>enabled</td>
+<td><strong>Boolean</strong> value which says whether
+one-way chap enabled or not</td>
+</tr>
+<tr class="row-odd"><td>username</td>
+<td>Username of one-way chap</td>
+</tr>
+<tr class="row-even"><td colspan="2"><dl class="first last docutils">
+<dt>Password  | Password of one-way chap</dt>
+<dd><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td rowspan="4">mutual-chap</td>
+<td colspan="2"><dl class="first last docutils">
+<dt>With this level of security,   the iSCSI target</dt>
+<dd>and the initiator authenticate each other.</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td>enabled</td>
+<td><strong>Boolean</strong> value which says whether
+mutual  chap enabled or not</td>
+</tr>
+<tr class="row-odd"><td>username</td>
+<td>Username of mutual  chap</td>
+</tr>
+<tr class="row-even"><td colspan="2"><dl class="first last docutils">
+<dt>Password  | Password of mutual  chap</dt>
+<dd><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td rowspan="6">iscsi service</td>
+<td colspan="2">This should be set to enable to access iscsi service</td>
+</tr>
+<tr class="row-even"><td>id</td>
+<td>The primary key unique id by which
+the iscsi service can be  identified</td>
+</tr>
+<tr class="row-odd"><td>enabled</td>
+<td><strong>Boolean</strong> value which says whether
+iscsi service enabled or not</td>
+</tr>
+<tr class="row-even"><td>port</td>
+<td>iSCSI uses TCP   ports 860 and 3260</td>
+</tr>
+<tr class="row-odd"><td>isns</td>
+<td>isns (Internet Storage Name Service ).
+<strong>Boolean</strong> value which says whether
+isns service enabled or not</td>
+</tr>
+<tr class="row-even"><td colspan="2"><dl class="first last docutils">
+<dt>address   | The IP address of isns service</dt>
+<dd><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-iscsi-shares">
+<h2>GET iSCSI Shares<a class="headerlink" href="#get-iscsi-shares" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#iscsi-object-label">iSCSI Share object</a> containing the iscsi shares present
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/iscsi_shares/api</p>
+<p><strong>Input</strong> &#8211;&gt; None</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#iscsi-object-label">iSCSI Share objects</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="post-create-iscsi-share">
+<h2>POST - Create iSCSI Share<a class="headerlink" href="#post-create-iscsi-share" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#iscsi-object-label">iSCSI Share object</a> containing the share to create.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/iscsi_shares/api</p>
+<p><strong>Input</strong> &#8211;&gt; <a class="reference external" href="#iscsi-object-label">iSCSI Share object</a></p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#iscsi-object-label">iSCSI Share object</a> which got created with a new <cite>id</cite>.</p>
+</div></blockquote>
+</div>
+<div class="section" id="delete-delete-iscsi-share">
+<h2>DELETE - Delete iSCSI Share<a class="headerlink" href="#delete-delete-iscsi-share" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#iscsi-object-label">iSCSI Share object</a> containing the share to delete.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/iscsi_shares/api</p>
+<p><strong>Input</strong> &#8211;&gt; <a class="reference external" href="#iscsi-object-label">iSCSI Share object</a></p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#iscsi-object-label">iSCSI Share object</a> which got deleted.</p>
+</div></blockquote>
+</div>
+<div class="section" id="put-edit-iscsi-share">
+<h2>PUT - Edit iSCSI Share<a class="headerlink" href="#put-edit-iscsi-share" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#share-object-label">iSCSI Share object</a> containing the share to edit.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/iscsi_shares/api</p>
+<p><strong>Input</strong> &#8211;&gt; <a class="reference external" href="#iscsi-object-label">iSCSI Share object</a></p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#iscsi-object-label">iSCSI Share object</a> which got edited.</p>
+</div></blockquote>
 </div>
 </div>
 
