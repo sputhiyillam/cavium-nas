@@ -5,40 +5,46 @@ The shares api exposes interfaces related to shares present in the the NAS devic
 
 .. _iscsi-object-label:
 
-iSCSI Object
--------------
+iSCSI Service Object
+--------------------
 
-The following represents a iscsi object::
+The following represents a iscsi service object::
 
     [
       {
-        "iscsi-service": {
-            "id": 1,
+        
+        "id": 1,
+        "enabled": true,
+        "port": "",
+        "isns": true,
+        "isns-address": ""
+        
+      }
+    ]
+    
+iSCSI Target Object
+-------------------
+
+The following represents a iscsi target object::
+
+    [
+      {
+        "id": 1,
+        "target": "",
+        "size": "",
+        "volume": "",
+        "header-digest": true,
+        "data-digest": false,
+        "one-way-chap": {
             "enabled": true,
-            "port": "",
-            "isns": true,
-            "isns-address": ""
+            "username": "",
+            "password": ""
         },
-        "iscsi-targets": [
-            {
-                "id": 1,
-                "target": "",
-                "size": "",
-                "volume": "",
-                "header-digest": true,
-                "data-digest": false,
-                "one-way-chap": {
-                    "enabled": true,
-                    "username": "",
-                    "password": ""
-                },
-                "mutual-chap": {
-                    "enabled": false,
-                    "username": "",
-                    "password": ""
-                }
-            }
-        ]
+        "mutual-chap": {
+            "enabled": false,
+            "username": "",
+            "password": ""
+        }
       }
     ]
 

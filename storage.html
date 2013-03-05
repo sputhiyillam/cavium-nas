@@ -50,7 +50,8 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">iSCSI</a><ul>
-<li><a class="reference internal" href="#iscsi-object">iSCSI Object</a></li>
+<li><a class="reference internal" href="#iscsi-service-object">iSCSI Service Object</a></li>
+<li><a class="reference internal" href="#iscsi-target-object">iSCSI Target Object</a></li>
 <li><a class="reference internal" href="#get-iscsi-shares">GET iSCSI Shares</a></li>
 <li><a class="reference internal" href="#post-create-iscsi-share">POST - Create iSCSI Share</a></li>
 <li><a class="reference internal" href="#delete-delete-iscsi-share">DELETE - Delete iSCSI Share</a></li>
@@ -94,38 +95,44 @@
   <div class="section" id="iscsi">
 <h1>iSCSI<a class="headerlink" href="#iscsi" title="Permalink to this headline">¶</a></h1>
 <p>The shares api exposes interfaces related to shares present in the the NAS device.</p>
-<div class="section" id="iscsi-object">
-<span id="iscsi-object-label"></span><h2>iSCSI Object<a class="headerlink" href="#iscsi-object" title="Permalink to this headline">¶</a></h2>
-<p>The following represents a iscsi object:</p>
+<div class="section" id="iscsi-service-object">
+<span id="iscsi-object-label"></span><h2>iSCSI Service Object<a class="headerlink" href="#iscsi-service-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a iscsi service object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s">&quot;iscsi-service&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">&quot;port&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;isns&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">&quot;isns-address&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iscsi-target-object">
+<h2>iSCSI Target Object<a class="headerlink" href="#iscsi-target-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a iscsi target object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;target&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;volume&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;header-digest&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">&quot;data-digest&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">&quot;one-way-chap&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-        <span class="s">&quot;port&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="s">&quot;isns&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-        <span class="s">&quot;isns-address&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+        <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="s">&quot;iscsi-targets&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s">&quot;target&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-            <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-            <span class="s">&quot;volume&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-            <span class="s">&quot;header-digest&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-            <span class="s">&quot;data-digest&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-            <span class="s">&quot;one-way-chap&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-                <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
-            <span class="p">},</span>
-            <span class="s">&quot;mutual-chap&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-                <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="s">&quot;mutual-chap&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
