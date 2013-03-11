@@ -13,8 +13,8 @@ The following represents a iscsi service object::
     [
       {
         
-        "id": 1,
-        "enabled": true,
+        "id": "",
+        "iscsi": true,
         "port": "",
         "isns": true,
         "isns-address": ""
@@ -29,9 +29,10 @@ The following represents a iscsi target object::
 
     [
       {
-        "id": 1,
+        "id": "",
         "target": "",
         "size": "",
+        "type": "",
         "volume": "",
         "header-digest": true,
         "data-digest": false,
@@ -65,6 +66,9 @@ The following represents a iscsi target object::
 |                |                                                          |
 +----------------+----------------------------------------------------------+
 | size           | Size of the iSCSI share                                  |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| type           | This is says the  storage type is File or Block          |
 |                |                                                          |
 +----------------+----------------------------------------------------------+
 | volume         | Volume of creatd iSCSI share                             |

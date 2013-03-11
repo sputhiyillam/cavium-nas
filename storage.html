@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>iSCSI &mdash; Cavium-Nas  0.2 documentation</title>
+    <title>iSCSI &mdash; TurboNAS  0.3 documentation</title>
     
     <link rel="stylesheet" href="_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.2',
+        VERSION:     '0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Cavium-Nas  0.2 documentation" href="index.html" />
+    <link rel="top" title="TurboNAS  0.3 documentation" href="index.html" />
     <link rel="next" title="Disks" href="disks.html" />
     <link rel="prev" title="Status and Responses" href="responses.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="_static/solarized-dark.css" rel="stylesheet">
@@ -42,7 +42,7 @@
         <li class="right" >
           <a href="responses.html" title="Status and Responses"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Cavium-Nas  0.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">TurboNAS  0.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -101,8 +101,8 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
   <span class="p">{</span>
 
-    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;iscsi&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s">&quot;port&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
     <span class="s">&quot;isns&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s">&quot;isns-address&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
@@ -117,9 +117,10 @@
 <p>The following represents a iscsi target object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
   <span class="p">{</span>
-    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
     <span class="s">&quot;target&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
     <span class="s">&quot;size&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
     <span class="s">&quot;volume&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
     <span class="s">&quot;header-digest&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s">&quot;data-digest&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
@@ -163,18 +164,21 @@ can be identified</td>
 <tr class="row-odd"><td>size</td>
 <td colspan="2">Size of the iSCSI share</td>
 </tr>
-<tr class="row-even"><td>volume</td>
+<tr class="row-even"><td>type</td>
+<td colspan="2">This is says the  storage type is File or Block</td>
+</tr>
+<tr class="row-odd"><td>volume</td>
 <td colspan="2">Volume of creatd iSCSI share</td>
 </tr>
-<tr class="row-odd"><td>header-digest</td>
+<tr class="row-even"><td>header-digest</td>
 <td colspan="2"><strong>Boolean</strong> value which tells whether the header digest
 is enabled or not.</td>
 </tr>
-<tr class="row-even"><td>data-digest</td>
+<tr class="row-odd"><td>data-digest</td>
 <td colspan="2"><strong>Boolean</strong> value which tells whether the data digest
 is enabled or not.</td>
 </tr>
-<tr class="row-odd"><td rowspan="4">one-way-chap</td>
+<tr class="row-even"><td rowspan="4">one-way-chap</td>
 <td colspan="2"><blockquote class="first">
 <div>With this level of security,</div></blockquote>
 <p class="last">only the iSCSI target authenticates the initiator.
@@ -183,14 +187,14 @@ that want to access that target need to use the same
 secret to start a logon session with the target.</p>
 </td>
 </tr>
-<tr class="row-even"><td>enabled</td>
+<tr class="row-odd"><td>enabled</td>
 <td><strong>Boolean</strong> value which says whether
 one-way chap enabled or not</td>
 </tr>
-<tr class="row-odd"><td>username</td>
+<tr class="row-even"><td>username</td>
 <td>Username of one-way chap</td>
 </tr>
-<tr class="row-even"><td colspan="2"><dl class="first last docutils">
+<tr class="row-odd"><td colspan="2"><dl class="first last docutils">
 <dt>Password  | Password of one-way chap</dt>
 <dd><div class="first last line-block">
 <div class="line"><br /></div>
@@ -199,21 +203,21 @@ one-way chap enabled or not</td>
 </dl>
 </td>
 </tr>
-<tr class="row-odd"><td rowspan="4">mutual-chap</td>
+<tr class="row-even"><td rowspan="4">mutual-chap</td>
 <td colspan="2"><dl class="first last docutils">
 <dt>With this level of security,   the iSCSI target</dt>
 <dd>and the initiator authenticate each other.</dd>
 </dl>
 </td>
 </tr>
-<tr class="row-even"><td>enabled</td>
+<tr class="row-odd"><td>enabled</td>
 <td><strong>Boolean</strong> value which says whether
 mutual  chap enabled or not</td>
 </tr>
-<tr class="row-odd"><td>username</td>
+<tr class="row-even"><td>username</td>
 <td>Username of mutual  chap</td>
 </tr>
-<tr class="row-even"><td colspan="2"><dl class="first last docutils">
+<tr class="row-odd"><td colspan="2"><dl class="first last docutils">
 <dt>Password  | Password of mutual  chap</dt>
 <dd><div class="first last line-block">
 <div class="line"><br /></div>
@@ -222,26 +226,26 @@ mutual  chap enabled or not</td>
 </dl>
 </td>
 </tr>
-<tr class="row-odd"><td rowspan="6">iscsi service</td>
+<tr class="row-even"><td rowspan="6">iscsi service</td>
 <td colspan="2">This should be set to enable to access iscsi service</td>
 </tr>
-<tr class="row-even"><td>id</td>
+<tr class="row-odd"><td>id</td>
 <td>The primary key unique id by which
 the iscsi service can be  identified</td>
 </tr>
-<tr class="row-odd"><td>enabled</td>
+<tr class="row-even"><td>enabled</td>
 <td><strong>Boolean</strong> value which says whether
 iscsi service enabled or not</td>
 </tr>
-<tr class="row-even"><td>port</td>
+<tr class="row-odd"><td>port</td>
 <td>iSCSI uses TCP   ports 860 and 3260</td>
 </tr>
-<tr class="row-odd"><td>isns</td>
+<tr class="row-even"><td>isns</td>
 <td>isns (Internet Storage Name Service ).
 <strong>Boolean</strong> value which says whether
 isns service enabled or not</td>
 </tr>
-<tr class="row-even"><td colspan="2"><dl class="first last docutils">
+<tr class="row-odd"><td colspan="2"><dl class="first last docutils">
 <dt>address   | The IP address of isns service</dt>
 <dd><div class="first last line-block">
 <div class="line"><br /></div>
@@ -310,7 +314,7 @@ in the NAS device.</p>
         <li class="right" >
           <a href="responses.html" title="Status and Responses"
              >previous</a> |</li>
-        <li><a href="index.html">Cavium-Nas  0.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">TurboNAS  0.3 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

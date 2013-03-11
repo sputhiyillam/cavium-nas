@@ -1,0 +1,75 @@
+======
+Quota
+======
+The quota api exposes interfaces related to assigned quota  in the the NAS device. 
+
+.. _quota-object-label:
+
+Quota Object
+------------
+
+The following represents a quota object::
+
+    [
+     {
+        "id": "",
+        "grace_time": "",
+        "time_left": "",
+        "users":
+            [
+             {
+                "id": "",
+                "usage": "",
+                "size": ""
+             }
+            ]
+     }
+    ]
+    
+
+**Quota Object Details**
+
++-----------------+----------------------------------------------------------+
+| Name            | Value                                                    |
+|                 |                                                          |
++=================+==========================================================+
+| id              | The primary key unique id by which the quota can be      |
+|                 |    identified                                            |
++-----------------+----------------------------------------------------------+
+| grace_time      |  The grace time specified for the particular quota       |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| time_left       |   Total time left of current quota                       |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| user            |  This user which is enabled for quota uasge.             |
+|                 |                                                          |
+|                 +-----------+----------------------------------------------+
+|                 | id        | The primary key unique id by which the       |
+|                 |           | user quota can be identified                 |
+|                 |           |                                              |
+|                 +-----------+----------------------------------------------+
+|                 | usage     | The total percentage of user quota uasage    |
+|                 |           |                                              |
+|                 |           |                                              |
+|                 +-----------+----------------------------------------------+
+|                 | size      |  Total size of the assigned user quota       |
+|                 |           |                                              |
++-----------------+----------------------------------------------------------+
+
+
+
+GET quota details
+------------------
+Returns `Quota object <#quota-object-label>`_ containing the quota details
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/quota/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Quota objects <#quota-object-label>`_
+
+
+.. note::
+   Set quota yet to be updated.
