@@ -10,21 +10,17 @@ Firmware Object
 
 The following represents a get firmware object::
 
-    [
-     {
+    
+    {
+        "id": 1,
         "description": "",
         "version": "",
-        "update_available": true,
-        "release_notes":"About future release",
-        "update": {
-            "time": "",
-            "never": false,
-            "ask": true,
-            "scheduled": false,
-            "manual": false
-        }
-     }
-    ]
+        "release_notes": "",
+        "update_method": "",
+        "update_schedule": "",
+        "is_available": false
+    }
+    
     
 .. _firmware-progress-object-label:    
     
@@ -58,7 +54,7 @@ The following represents a firmware progress object::
 | release_notes   | Details of currently available update                    |
 |                 |                                                          |
 +-----------------+----------------------------------------------------------+
-| update          |  This object is contain four different sub object.       |
+| update_method   |  This object is contain following upadte methos  .       |
 |                 |                                                          |
 |                 +-----------+----------------------------------------------+
 |                 | manual    | **Boolean** value which says whether         |

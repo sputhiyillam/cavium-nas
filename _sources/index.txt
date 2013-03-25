@@ -26,6 +26,8 @@ Contents:
     device
     rbm
     quota
+    services
+    ups
 
 
 

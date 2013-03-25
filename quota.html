@@ -25,6 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="TurboNAS  0.3 documentation" href="index.html" />
+    <link rel="next" title="Services" href="services.html" />
     <link rel="prev" title="RBM" href="rbm.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="_static/solarized-dark.css" rel="stylesheet">
   </head>
@@ -35,6 +36,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="services.html" title="Services"
+             accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="rbm.html" title="RBM"
              accesskey="P">previous</a> |</li>
@@ -48,6 +52,11 @@
 <li><a class="reference internal" href="#">Quota</a><ul>
 <li><a class="reference internal" href="#quota-object">Quota Object</a></li>
 <li><a class="reference internal" href="#get-quota-details">GET quota details</a></li>
+<li><a class="reference internal" href="#set-quota-details">SET quota details</a></li>
+<li><a class="reference internal" href="#disable-quota">Disable_quota</a></li>
+<li><a class="reference internal" href="#edit-user-quota">Edit_user_quota</a></li>
+<li><a class="reference internal" href="#add-user-quota">Add_user_quota</a></li>
+<li><a class="reference internal" href="#remove-user-quota">Remove_user_quota</a></li>
 </ul>
 </li>
 </ul>
@@ -55,6 +64,9 @@
   <h4>Previous topic</h4>
   <p class="topless"><a href="rbm.html"
                         title="previous chapter">RBM</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="services.html"
+                        title="next chapter">Services</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/quota.txt"
@@ -161,9 +173,55 @@ in the NAS device.</p>
 <p><strong>Input</strong> &#8211;&gt; None</p>
 <p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#quota-object-label">Quota objects</a></p>
 </div></blockquote>
+</div>
+<div class="section" id="set-quota-details">
+<h2>SET quota details<a class="headerlink" href="#set-quota-details" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#quota-object-label">Quota object</a> containing the quota details
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/quota/api</p>
+<p><strong>Input</strong> &#8211;&gt;  volume id, quota list</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#quota-object-label">Quota objects</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="disable-quota">
+<h2>Disable_quota<a class="headerlink" href="#disable-quota" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#quota-object-label">Quota object</a> containing the quota details
+in the NAS device.</p>
+<blockquote>
+<div><p>This function will disable the volume&#8217;s quota.</p>
+<p><strong>Input</strong> &#8211;&gt;       : volume id</p>
+</div></blockquote>
+</div>
+<div class="section" id="edit-user-quota">
+<h2>Edit_user_quota<a class="headerlink" href="#edit-user-quota" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#quota-object-label">Quota object</a> containing the quota details
+in the NAS device.</p>
+<blockquote>
+<div><p>This function will edit user&#8217;s quota info.</p>
+<p><strong>Input</strong> &#8211;&gt;       : volume id, quota list</p>
+</div></blockquote>
+</div>
+<div class="section" id="add-user-quota">
+<h2>Add_user_quota<a class="headerlink" href="#add-user-quota" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#quota-object-label">Quota object</a> containing the quota details
+in the NAS device.</p>
+<blockquote>
+<div><p>This function will enable the user&#8217;s quota info.</p>
+<p><strong>Input</strong> &#8211;&gt;      : volume id, quota list</p>
+</div></blockquote>
+</div>
+<div class="section" id="remove-user-quota">
+<h2>Remove_user_quota<a class="headerlink" href="#remove-user-quota" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#quota-object-label">Quota object</a> containing the quota details
+in the NAS device.</p>
+<blockquote>
+<div><p>This function will disable the user&#8217;s quota info.</p>
+<p><strong>Input</strong> &#8211;&gt;    : volume id, user list</p>
+</div></blockquote>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Set quota yet to be updated.</p>
+<p class="last">Input user list contain the specified user object</p>
 </div>
 </div>
 </div>
@@ -180,6 +238,9 @@ in the NAS device.</p>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="services.html" title="Services"
+             >next</a> |</li>
         <li class="right" >
           <a href="rbm.html" title="RBM"
              >previous</a> |</li>

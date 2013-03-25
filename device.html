@@ -96,21 +96,15 @@
 <div class="section" id="firmware-object">
 <span id="firmware-object-label"></span><h2>Firmware Object<a class="headerlink" href="#firmware-object" title="Permalink to this headline">¶</a></h2>
 <p>The following represents a get firmware object:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
- <span class="p">{</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
     <span class="s">&quot;version&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-    <span class="s">&quot;update_available&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s">&quot;release_notes&quot;</span><span class="p">:</span><span class="s">&quot;About future release&quot;</span><span class="p">,</span>
-    <span class="s">&quot;update&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s">&quot;time&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-        <span class="s">&quot;never&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-        <span class="s">&quot;ask&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-        <span class="s">&quot;scheduled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-        <span class="s">&quot;manual&quot;</span><span class="p">:</span> <span class="n">false</span>
-    <span class="p">}</span>
- <span class="p">}</span>
-<span class="p">]</span>
+    <span class="s">&quot;release_notes&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;update_method&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;update_schedule&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;is_available&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -150,8 +144,8 @@
 <tr class="row-odd"><td>release_notes</td>
 <td colspan="2">Details of currently available update</td>
 </tr>
-<tr class="row-even"><td rowspan="6">update</td>
-<td colspan="2">This object is contain four different sub object.</td>
+<tr class="row-even"><td rowspan="6">update_method</td>
+<td colspan="2">This object is contain following upadte methos  .</td>
 </tr>
 <tr class="row-odd"><td>manual</td>
 <td><strong>Boolean</strong> value which says whether
