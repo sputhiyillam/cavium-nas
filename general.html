@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>General Setup &mdash; TurboNAS  0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="TurboNAS  0.5 documentation" href="index.html" />
+    <link rel="prev" title="UPS" href="ups.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ups.html" title="UPS"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">General Setup</a><ul>
+<li><a class="reference internal" href="#general-object">General Object</a></li>
+<li><a class="reference internal" href="#get-setup-details">GET Setup  details</a></li>
+<li><a class="reference internal" href="#set-ntp-details">SET NTP details</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ups.html"
+                        title="previous chapter">UPS</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/general.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="general-setup">
+<h1>General Setup<a class="headerlink" href="#general-setup" title="Permalink to this headline">¶</a></h1>
+<p>The General api exposes interfaces related to date and time setup  in the the NAS device.</p>
+<div class="section" id="general-object">
+<span id="general-object-label"></span><h2>General Object<a class="headerlink" href="#general-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a General object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;server_name&quot;</span><span class="p">:</span> <span class="s">&quot;Turbo NAS Octeon&quot;</span><span class="p">,</span>
+    <span class="s">&quot;ntp&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+        <span class="s">&quot;timezone&quot;</span><span class="p">:</span> <span class="s">&quot;Asia/Kolkata&quot;</span><span class="p">,</span>
+        <span class="s">&quot;address&quot;</span><span class="p">:</span> <span class="s">&quot;pool.ntp.org&quot;</span><span class="p">,</span>
+        <span class="s">&quot;sync_time&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;time&quot;</span><span class="p">:</span> <span class="s">&quot;12:50&quot;</span><span class="p">,</span>
+            <span class="s">&quot;frequency&quot;</span><span class="p">:</span> <span class="s">&quot;Day&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s">&quot;datetime&quot;</span><span class="p">:</span> <span class="s">&quot;2013-07-21 23:31&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>General Object Details</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="15%" />
+<col width="14%" />
+<col width="48%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head" colspan="3">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td colspan="3"><dl class="first last docutils">
+<dt>The primary key unique id by which the geral setup can be</dt>
+<dd>identified</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>server_name</td>
+<td colspan="3">The current device name</td>
+</tr>
+<tr class="row-even"><td>datetime</td>
+<td colspan="3">The current date and time</td>
+</tr>
+<tr class="row-odd"><td rowspan="7">ntp</td>
+<td colspan="3">Network Time Protocol which allow user to
+syn time and date</td>
+</tr>
+<tr class="row-even"><td>enabled</td>
+<td colspan="2">Is ntp is enabled or not</td>
+</tr>
+<tr class="row-odd"><td>timezone</td>
+<td colspan="2">timezone  user prefer to set</td>
+</tr>
+<tr class="row-even"><td>address</td>
+<td colspan="2">NTP server ip or url</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">sync_time</td>
+<td colspan="2">NTP sync time</td>
+</tr>
+<tr class="row-even"><td>time</td>
+<td><dl class="first last docutils">
+<dt>ntp sync time which will sync</dt>
+<dd>with current server</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>frequency</td>
+<td>Daily or seven days</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-setup-details">
+<h2>GET Setup  details<a class="headerlink" href="#get-setup-details" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#general-object-label">General object</a> containing the ntp or date time details
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/setup/api</p>
+<p><strong>Input</strong> &#8211;&gt; None</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#quota-object-label">general objects</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="set-ntp-details">
+<h2>SET NTP details<a class="headerlink" href="#set-ntp-details" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#general-object-label">General object</a> containing the setup ntp details
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/setup/api</p>
+<p><strong>Input</strong> &#8211;&gt;  Changed attributes.  .. Example:-  {&#8220;ntp&#8221;:{&#8220;enabled&#8221; : true}}</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#general-object-label">General objects</a></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">UI Strictly send only changed values.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ups.html" title="UPS"
+             >previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Sreeni Puthiyillam.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    </div>
+  </body>
+</html>

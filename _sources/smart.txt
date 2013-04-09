@@ -35,4 +35,5 @@ The following represents a smart test object::
    status details is available in disk object.
    
    * :ref:`disks-label`
+   
 

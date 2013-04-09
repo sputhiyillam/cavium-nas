@@ -1,0 +1,98 @@
+.. _events-label:
+
+======================
+Notifications - Events
+======================
+The events api exposes interfaces related to events present in the the NAS device.
+
+.. _events-object-label:
+
+Events Object
+-------------
+
+The following represents a events object::
+
+    {
+        "modules": [
+        {
+            "id": 1,
+            "name": "Disks",
+            "log_path": "/turbonas/ui/disks.log",
+            "event": [
+            {
+                "target": {
+                    "NA_targets": [
+                        2
+                    ],
+                    "disabled_targets": [],
+                    "enabled_targets": [
+                        1,
+                        3,
+                        4
+                    ]
+                }
+            }
+            ]
+        }
+        ]
+    }
+
+**Events Object Details**
+
++----------------+----------------------------------------------------------+
+| Name           | Value                                                    |
+|                |                                                          |
++================+==========================================================+
+| id             | The primary key unique id by which the UI can be         |
+|                | Tracked                                                  |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| modules        | This array contain all events and log deatils            |
+|                +-----------+----------------------------------------------+
+|                | log path  | This says ,from which the log details will   |
+|                |           | store                                        |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | name      | Module name , that contains disks,volume etc.|
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | event     | This key contains following objects          |
+|                |           |                                              |
+|                |           +----------+----------------+------------------+
+|                |           | target   |  This says the event where to show|
+|                |           |          +----------------+------------------+
+|                |           |          | NA_target      | All not available|
+|                |           |          |                | targets  id      |
+|                |           |          +----------------+------------------+
+|                |           |          | disable_target | All disabled     |
+|                |           |          |                |  target id       |
+|                |           |          +----------------+------------------+
+|                |           |          | enable_target  | All enable       |
+|                |           |          |                | target id        |
++----------------+-----------+----------+----------------+------------------+
+
+GET Events
+------------
+Returns `Events object <#events-object-label>`_ containing the events present
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/events/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Events objects <#events-object-label>`_
+
+POST - Save Events
+---------------------
+Takes `Events object <#events-object-label>`_ containing the Events to display.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/events/api
+
+    **Input** --> `Events object <#event-object-label>`_
+
+    **Response** --> `Events object <#Events-object-label>`_
+
+.. note::
+   
+   Na_target key used for to stop user, to configure an event using UI. When volume is degrading (As per predefined rules) user canot configure.
+

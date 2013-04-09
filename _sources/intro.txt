@@ -23,11 +23,13 @@ The Cavium NAS solution is available on Cavium’ Econa® and Octeon® SoC platf
 
    NAS UI
    
-.. image:: nas.jpg
-   :height: 300px
-   :width: 300 px
+.. image:: smart.png
+   :height: 400px
+   :width: 400 px
    :scale: 80 %
    :alt: alternate text
    :align: left
+   
+
 
 

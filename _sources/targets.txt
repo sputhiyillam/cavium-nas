@@ -1,0 +1,127 @@
+.. _targets-label:
+
+=======================
+Notifications - Targets
+=======================
+The target api exposes interfaces related to targets to display events in the the NAS device.
+
+.. _targets-object-label:
+
+Targets Object
+--------------
+
+The following represents a targets object::
+
+    {
+        "email_recipients": [
+         {
+            "username": "",
+            "email_id": "",
+            "id": 1
+         }
+        ],
+        "smtp": {
+            "authentication": {
+                "username": "",
+                "enabled": false
+            },
+            "ssl_tls": {
+                "type": "ssl",
+                "enabled": true
+            },
+            "port": 587,
+            "server_name": "smtp.gmail.com",
+            "sender": ""
+        },
+        "id": 1,
+        "targets": [
+         {
+            "enabled": true,
+            "id": 1,
+            "name": "LCD"
+         }
+        ]
+    }
+
+**Events Object Details**
+
++-----------------+----------------------------------------------------------+
+| Name            | Value                                                    |
+|                 |                                                          |
++=================+==========================================================+
+| id              | The primary key unique id by which the UI can be         |
+|                 | Tracked                                                  |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| email_recipients| Array of recipients email id                             |
+|                 +-----------+----------------------------------------------+
+|                 | username  | username of the person                       |
+|                 |           |                                              |
+|                 +-----------+----------------------------------------------+
+|                 | email_id  | Working email  id, user will get alerts on   |
+|                 |           |  this email id                               |
+|                 |           |                                              |
+|                 +-----------+----------------------------------------------+
+|                 |       id  | This is unique id by which user              |
+|                 |           |  can be identified                           |
+|                 |           |                                              |
++-----------------+-----------+----------------------------------------------+
+|   smtp          | Simple Mail Transfer Protocol (SMTP)                     |
+|                 +---------------+------------------------------------------+
+|                 | authentication|  This key will conatin following objects |
+|                 |               |                                          |
+|                 |               +------------+-----------------------------+
+|                 |               | username   |  smtp username              |
+|                 |               |            |                             |
+|                 |               +------------+-----------------------------+
+|                 |               | enabled    |   **Boolean** it says       |
+|                 |               |            |   smtp true or false        |
+|                 +---------------+------------------------------------------+
+|                 | ssl_tls       |  This key will conatin following objects |
+|                 |               |                                          |
+|                 |               +------------+-----------------------------+
+|                 |               | type       |  it says whether its ssl    |
+|                 |               |            |  tls                        |
+|                 |               |            |                             |
+|                 |               +------------+-----------------------------+
+|                 |               | enabled    |   **Boolean** it says       |
+|                 |               |            |   ssl_tls true or false     |
+|                 +---------------+------------+-----------------------------+
+|                 | port          | Port number                              |
+|                 +---------------+------------------------------------------+
+|                 | server_name   | smtp server name                         |
+|                 +---------------+------------------------------------------+
+|                 | sender        | Sender of the mail                       |
++-----------------+---------------+------------------------------------------+
+| targets         |  enabled      |  **Boolean** it says target true or false|
+|                 +---------------+------------------------------------------+
+|                 |  name         | It have list of names which target is    |
+|                 |               | going to specifie                        |
+|                 +---------------+------------------------------------------+
+|                 | id            | This is unique key by which target can   |
+|                 |               | be identified.                           |
++-----------------+---------------+------------------------------------------+
+
+GET Targets
+------------
+Returns `Targets object <#targets-object-label>`_ containing the target present
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/targets/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Targets objects <#targets-object-label>`_
+
+POST - Save Target
+------------------
+Takes `Target object <#target-object-label>`_ containing the Target to display.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/target/api
+
+    **Input** --> `Targets object <#targets-object-label>`_
+
+    **Response** --> `Targets object <#targets-object-label>`_
+
+
+

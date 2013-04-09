@@ -29,12 +29,10 @@ Firmware Progress Object
 
 The following represents a firmware progress object::
 
-    [
-     {
-        "status": "running",
+    {
+        "status": "",
         "progress" : "40 %"
-     }
-    ]
+    }
 
 **Firmware Object Details**
 
@@ -76,6 +74,8 @@ The following represents a firmware progress object::
 |                 |           |                                              |
 +-----------------+----------------------------------------------------------+
 | status          | This object which says firmware upgrade is running or not|
+|                 |  updating, not_updating,failed,success, no_update ,these |
+|                 |  are the values for status key                           |
 |                 |                                                          |
 +-----------------+----------------------------------------------------------+
 | progress        | current progress of running firmware                     |
@@ -103,4 +103,21 @@ Takes `Firmware object <#firmware-progress-object-label>`_
     **Input** --> None
 
     **Response** --> `Firmware Progress object <#firmware-progress-object-label>`_ Containing the firmware progress details.
+    
+    The firmware progress status contains "updating", "not_updating", "failed", "success" and "no_update" values. 
+    
 
+SET Firmware Preferences
+------------------------
+Returns `Firmware object <#firmware-object-label>`_ containing the firmware setup details.
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/firmware_update/api
+
+    **Input** --> UI Changed values. update_method ="ask/scheduled/manual/never"
+
+    **Response** --> Array of `Firmware objects <#firmware-object-label>`_
+
+.. note ::
+
+  UI only send changed values. In present case, UI will send update_method value. If update method is scheduled then UI will send the time details also.

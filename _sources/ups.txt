@@ -8,7 +8,7 @@ The ups api exposes interfaces related to ups present in the the NAS device.
 UPS Object
 ----------
 
-The following represents a ups service object::
+The following represents a ups device object::
 
     {
         "id":1,
@@ -17,6 +17,10 @@ The following represents a ups service object::
         "status": "",
         "battery_level": "",
         "battery_runtime": "",
+        "threshold": {
+            "battery_level": "",
+            "battery_runtime": ""
+        },
         "timeout": ""
     }
     
@@ -37,7 +41,7 @@ The following represents a ups service object::
 | model          | Ups model name                                           |
 |                |                                                          |
 +----------------+----------------------------------------------------------+
-| status         | Current UPS statu                                        |
+| status         | Current UPS status                                       |
 |                |                                                          |
 +----------------+----------------------------------------------------------+
 | battery_level  | Available ups battery usage before abrupt shutdown       |

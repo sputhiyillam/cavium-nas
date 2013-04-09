@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Notifications - Targets &mdash; TurboNAS  0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="TurboNAS  0.5 documentation" href="index.html" />
+    <link rel="prev" title="Notifications - Events" href="events.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="events.html" title="Notifications - Events"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Notifications - Targets</a><ul>
+<li><a class="reference internal" href="#targets-object">Targets Object</a></li>
+<li><a class="reference internal" href="#get-targets">GET Targets</a></li>
+<li><a class="reference internal" href="#post-save-target">POST - Save Target</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="events.html"
+                        title="previous chapter">Notifications - Events</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/targets.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="notifications-targets">
+<span id="targets-label"></span><h1>Notifications - Targets<a class="headerlink" href="#notifications-targets" title="Permalink to this headline">¶</a></h1>
+<p>The target api exposes interfaces related to targets to display events in the the NAS device.</p>
+<div class="section" id="targets-object">
+<span id="targets-object-label"></span><h2>Targets Object<a class="headerlink" href="#targets-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a targets object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;email_recipients&quot;</span><span class="p">:</span> <span class="p">[</span>
+     <span class="p">{</span>
+        <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;email_id&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span>
+     <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s">&quot;smtp&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;authentication&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+            <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">false</span>
+        <span class="p">},</span>
+        <span class="s">&quot;ssl_tls&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;ssl&quot;</span><span class="p">,</span>
+            <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">true</span>
+        <span class="p">},</span>
+        <span class="s">&quot;port&quot;</span><span class="p">:</span> <span class="mi">587</span><span class="p">,</span>
+        <span class="s">&quot;server_name&quot;</span><span class="p">:</span> <span class="s">&quot;smtp.gmail.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;sender&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;targets&quot;</span><span class="p">:</span> <span class="p">[</span>
+     <span class="p">{</span>
+        <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;LCD&quot;</span>
+     <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Events Object Details</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="15%" />
+<col width="4%" />
+<col width="17%" />
+<col width="40%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head" colspan="4">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td colspan="4">The primary key unique id by which the UI can be
+Tracked</td>
+</tr>
+<tr class="row-odd"><td rowspan="4">email_recipients</td>
+<td colspan="4">Array of recipients email id</td>
+</tr>
+<tr class="row-even"><td>username</td>
+<td colspan="3">username of the person</td>
+</tr>
+<tr class="row-odd"><td>email_id</td>
+<td colspan="3"><dl class="first last docutils">
+<dt>Working email  id, user will get alerts on</dt>
+<dd>this email id</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td>id</td>
+<td colspan="3"><dl class="first last docutils">
+<dt>This is unique id by which user</dt>
+<dd>can be identified</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td rowspan="10">smtp</td>
+<td colspan="4">Simple Mail Transfer Protocol (SMTP)</td>
+</tr>
+<tr class="row-even"><td colspan="2" rowspan="3">authentication</td>
+<td colspan="2">This key will conatin following objects</td>
+</tr>
+<tr class="row-odd"><td>username</td>
+<td>smtp username</td>
+</tr>
+<tr class="row-even"><td colspan="2"><dl class="first last docutils">
+<dt>enabled    |   <strong>Boolean</strong> it says</dt>
+<dd><div class="first last line-block">
+<div class="line">smtp true or false</div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2" rowspan="3">ssl_tls</td>
+<td colspan="2">This key will conatin following objects</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td>it says whether its ssl
+tls</td>
+</tr>
+<tr class="row-odd"><td>enabled</td>
+<td><strong>Boolean</strong> it says
+ssl_tls true or false</td>
+</tr>
+<tr class="row-even"><td colspan="2">port</td>
+<td colspan="2">Port number</td>
+</tr>
+<tr class="row-odd"><td colspan="2">server_name</td>
+<td colspan="2">smtp server name</td>
+</tr>
+<tr class="row-even"><td colspan="2">sender</td>
+<td colspan="2">Sender of the mail</td>
+</tr>
+<tr class="row-odd"><td rowspan="3">targets</td>
+<td colspan="2">enabled</td>
+<td colspan="2"><strong>Boolean</strong> it says target true or false</td>
+</tr>
+<tr class="row-even"><td colspan="2">name</td>
+<td colspan="2">It have list of names which target is
+going to specifie</td>
+</tr>
+<tr class="row-odd"><td colspan="2">id</td>
+<td colspan="2">This is unique key by which target can
+be identified.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-targets">
+<h2>GET Targets<a class="headerlink" href="#get-targets" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#targets-object-label">Targets object</a> containing the target present
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/targets/api</p>
+<p><strong>Input</strong> &#8211;&gt; None</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#targets-object-label">Targets objects</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="post-save-target">
+<h2>POST - Save Target<a class="headerlink" href="#post-save-target" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#target-object-label">Target object</a> containing the Target to display.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/target/api</p>
+<p><strong>Input</strong> &#8211;&gt; <a class="reference external" href="#targets-object-label">Targets object</a></p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#targets-object-label">Targets object</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="events.html" title="Notifications - Events"
+             >previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Sreeni Puthiyillam.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    </div>
+  </body>
+</html>

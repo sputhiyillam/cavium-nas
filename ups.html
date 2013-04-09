@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>UPS &mdash; TurboNAS  0.3 documentation</title>
+    <title>UPS &mdash; TurboNAS  0.5 documentation</title>
     
     <link rel="stylesheet" href="_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.3',
+        VERSION:     '0.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="TurboNAS  0.3 documentation" href="index.html" />
+    <link rel="top" title="TurboNAS  0.5 documentation" href="index.html" />
     <link rel="prev" title="Services" href="services.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="_static/solarized-dark.css" rel="stylesheet">
   </head>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="services.html" title="Services"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">TurboNAS  0.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">TurboNAS  0.5 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -88,7 +88,7 @@
 <p>The ups api exposes interfaces related to ups present in the the NAS device.</p>
 <div class="section" id="ups-object">
 <span id="ups-object-label"></span><h2>UPS Object<a class="headerlink" href="#ups-object" title="Permalink to this headline">¶</a></h2>
-<p>The following represents a ups service object:</p>
+<p>The following represents a ups device object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
     <span class="s">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
     <span class="s">&quot;connected&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
@@ -96,6 +96,10 @@
     <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
     <span class="s">&quot;battery_level&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
     <span class="s">&quot;battery_runtime&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;threshold&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;battery_level&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;battery_runtime&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+    <span class="p">},</span>
     <span class="s">&quot;timeout&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
 <span class="p">}</span>
 </pre></div>
@@ -124,7 +128,7 @@ can be identified</td>
 <td colspan="2">Ups model name</td>
 </tr>
 <tr class="row-odd"><td>status</td>
-<td colspan="2">Current UPS statu</td>
+<td colspan="2">Current UPS status</td>
 </tr>
 <tr class="row-even"><td>battery_level</td>
 <td colspan="2">Available ups battery usage before abrupt shutdown</td>
@@ -187,7 +191,7 @@ in the NAS device.</p>
         <li class="right" >
           <a href="services.html" title="Services"
              >previous</a> |</li>
-        <li><a href="index.html">TurboNAS  0.3 documentation</a> &raquo;</li> 
+        <li><a href="index.html">TurboNAS  0.5 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
