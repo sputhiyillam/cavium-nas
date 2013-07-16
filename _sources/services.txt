@@ -24,10 +24,16 @@ The following represents a service object::
             "ssltls": true
         },
         "upnp": true,
-        "media": true,
+        "DLNA": true,
         "afp": true,
         "nfs": true,
-        "webdav": true
+        "webdav": true,
+        "itunes": {
+            "enabled": true,
+            "sync_time": "",
+            "password_protected": true,
+            "password": ""
+        },
     }
 
 **Quota Object Details**
@@ -83,10 +89,29 @@ The following represents a service object::
 |                |  It says nfs service enabled or not                      |
 |                |                                                          |
 +----------------+----------------------------------------------------------+
-| media          |  Media service   **Boolean**                             |
+| DLNA           |  Media service   **Boolean**                             |
 |                |  It says media service enabled or not                    |
 |                |                                                          |
-+----------------+----------------------------------------------------------+
++----------------+--------------------+-------------------------------------+
+| iTunes         |  iTunes is a media player application  by Apple Inc.     |
+|                |                                                          |
+|                +--------------------+-------------------------------------+
+|                | enabled            | **Boolean**  it says iTune enabled  |
+|                |                    | or not                              |
+|                |                    |                                     |
+|                +--------------------+-------------------------------------+
+|                | sync_time          |  says sync time in  miunutes        |
+|                |                    |                                     | 
+|                |                    |                                     |
+|                +--------------------+-------------------------------------+
+|                | password_protected |   it says PWD is enabled            |
+|                |                    |   or not  **Boolean**               |
+|                |                    |                                     |
+|                +--------------------+-------------------------------------+
+|                | Password           | This object will say the password   |
+|                |                    | details of iTunes                   |
+|                |                    |                                     |
++----------------+--------------------+-------------------------------------+
 
 
 

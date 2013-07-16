@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Interface &mdash; TurboNAS  0.5 documentation</title>
+    
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="TurboNAS  0.5 documentation" href="index.html" />
+    <link rel="prev" title="Notifications - Targets" href="targets.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="targets.html" title="Notifications - Targets"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Interface</a><ul>
+<li><a class="reference internal" href="#firewall-object">Firewall Object</a></li>
+<li><a class="reference internal" href="#get-firewall">GET firewall</a></li>
+<li><a class="reference internal" href="#post-add-ip">POST - Add IP</a></li>
+<li><a class="reference internal" href="#post-delete-ip">POST - Delete IP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ddns">DDNS</a><ul>
+<li><a class="reference internal" href="#ddns-object">DDNS Object</a></li>
+<li><a class="reference internal" href="#get-ddns">GET DDNS</a></li>
+<li><a class="reference internal" href="#post-add-ddns">POST - Add DDNS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workgroup">Workgroup</a><ul>
+<li><a class="reference internal" href="#workgroup-object">Workgroup Object</a></li>
+<li><a class="reference internal" href="#get-workgroup">GET Workgroup</a></li>
+<li><a class="reference internal" href="#post-add-workgroup">POST - Add Workgroup</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="targets.html"
+                        title="previous chapter">Notifications - Targets</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/interface.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="interface">
+<span id="interface-label"></span><h1>Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h1>
+<p>The interface api exposes Firewall and DDNS and Workgroup related settings present in the the NAS device.</p>
+<div class="section" id="firewall-object">
+<span id="interface-object-label"></span><h2>Firewall Object<a class="headerlink" href="#firewall-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a firewall object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
+ <span class="p">{</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="s">&quot;10.82.0.202&quot;</span><span class="p">,</span>
+    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;allow&quot;</span>
+ <span class="p">},</span>
+ <span class="p">{</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="s">&quot;10.82.0.203&quot;</span><span class="p">,</span>
+    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;deny&quot;</span>
+ <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>firewall Object Details</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td>The primary key unique id by which the network can be
+identified.</td>
+</tr>
+<tr class="row-odd"><td>ip</td>
+<td>IP address</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><blockquote class="first">
+<div>value which says whether the current</div></blockquote>
+<p class="last">ip address is  allowed or denyed</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-firewall">
+<h2>GET firewall<a class="headerlink" href="#get-firewall" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#firewal-object-label">firewal object</a> containing the ip firewal present
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/firewal/api</p>
+<p><strong>Input</strong> &#8211;&gt; None</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#firewal-object-label">Firewal objects</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="post-add-ip">
+<h2>POST - Add IP<a class="headerlink" href="#post-add-ip" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#firewal-object-label">Firewal object</a> containing the ip address to add</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/firewal/api</p>
+<p><strong>Input</strong> &#8211;&gt; <a class="reference external" href="#firewal-object-label">Firewal object</a></p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#firewal-object-label">Firewal object</a> which got added.</p>
+</div></blockquote>
+</div>
+<div class="section" id="post-delete-ip">
+<h2>POST - Delete IP<a class="headerlink" href="#post-delete-ip" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#firewal-object-label">Firewal object</a> containing the ip address to delete</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/firewal/api</p>
+<p><strong>Input</strong> &#8211;&gt; <a class="reference external" href="#firewal-object-label">Firewal object</a></p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#firewal-object-label">Firewal object</a> which got deleted.</p>
+</div></blockquote>
+<p>The following represents a firewall post arguments</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
+ <span class="p">{</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="s">&quot;10.82.0.102&quot;</span><span class="p">,</span>
+    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;allow&quot;</span>
+ <span class="p">},</span>
+ <span class="p">{</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="s">&quot;10.82.0.103&quot;</span><span class="p">,</span>
+    <span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;allow&quot;</span>
+ <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ddns">
+<span id="ddns-label"></span><h1>DDNS<a class="headerlink" href="#ddns" title="Permalink to this headline">¶</a></h1>
+<p>The interface api exposes Firewall and DDNS and Workgroup related settings present in the the NAS device.</p>
+<div class="section" id="ddns-object">
+<span id="ddns-object-label"></span><h2>DDNS Object<a class="headerlink" href="#ddns-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a DDNS object</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;dns_server&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;www.no-ip.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;www.dyndns.com&quot;</span>
+    <span class="p">},</span>
+        <span class="s">&quot;dynamic_dns&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;domain_url&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;server&quot;</span><span class="p">:</span> <span class="s">&quot;www.dyndns.com&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>DDNS Object Details</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="27%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head" colspan="2">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td colspan="2">The primary key unique id by which the network can be
+identified.</td>
+</tr>
+<tr class="row-odd"><td>dns_server</td>
+<td colspan="2">This is the default dns server available</td>
+</tr>
+<tr class="row-even"><td rowspan="6">dynamic_dns</td>
+<td colspan="2">This is user specified dns server</td>
+</tr>
+<tr class="row-odd"><td>username</td>
+<td>username for particular server</td>
+</tr>
+<tr class="row-even"><td>domain_url</td>
+<td>says complete domain name</td>
+</tr>
+<tr class="row-odd"><td>password</td>
+<td>says password for the user</td>
+</tr>
+<tr class="row-even"><td>enabled</td>
+<td>it says DDNS is enabled
+or not  <strong>Boolean</strong></td>
+</tr>
+<tr class="row-odd"><td>server</td>
+<td>This object says the current server
+being used with username</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-ddns">
+<h2>GET DDNS<a class="headerlink" href="#get-ddns" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#firewal-object-label">ddns object</a> containing the ddns details present
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/ddns/api</p>
+<p><strong>Input</strong> &#8211;&gt; None</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#ddns-object-label">DDNS objects</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="post-add-ddns">
+<h2>POST - Add DDNS<a class="headerlink" href="#post-add-ddns" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#ddns-object-label">Firewal object</a> containing the url address to add</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/ddns/api</p>
+<p><strong>Input</strong> &#8211;&gt; <a class="reference external" href="#ddns-object-label">DDNS object</a></p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#ddns-object-label">DDNS object</a> which got added.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="workgroup">
+<span id="id11"></span><h1>Workgroup<a class="headerlink" href="#workgroup" title="Permalink to this headline">¶</a></h1>
+<p>The interface api exposes Firewall and DDNS and Workgroup related settings present in the the NAS device.</p>
+<div class="section" id="workgroup-object">
+<span id="workgroup-object-label"></span><h2>Workgroup Object<a class="headerlink" href="#workgroup-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a Workgroup object</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;ip&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;netbios&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;current_mode&quot;</span><span class="p">:</span> <span class="s">&quot;workgroup&quot;</span><span class="p">,</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;workgroup&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;WORKGROUP&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Workgroup Object Details</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="27%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head" colspan="2">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td colspan="2">The primary key unique id by which the network can be
+identified.</td>
+</tr>
+<tr class="row-odd"><td>current_mode</td>
+<td colspan="2">This is the default mode in the turbostor : Workgroup</td>
+</tr>
+<tr class="row-even"><td rowspan="2">workgroup</td>
+<td colspan="2">This is the default mode</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><dl class="first last docutils">
+<dt>name               |  name of the workgroup</dt>
+<dd><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td rowspan="6">domain</td>
+<td colspan="2">This objectcontail following detailed objec</td>
+</tr>
+<tr class="row-odd"><td>username</td>
+<td>username for particular server ads</td>
+</tr>
+<tr class="row-even"><td>ip</td>
+<td>IP of ADS server</td>
+</tr>
+<tr class="row-odd"><td>password</td>
+<td>says password for the user</td>
+</tr>
+<tr class="row-even"><td>netbios</td>
+<td>netbios namke of ads server</td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>This object says doamin name of the
+ads server</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-workgroup">
+<h2>GET Workgroup<a class="headerlink" href="#get-workgroup" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#Workgroup-object-label">Workgroup object</a> containing the Workgroup details present
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/Workgroup/api</p>
+<p><strong>Input</strong> &#8211;&gt; None</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#ddns-object-label">DDNS objects</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="post-add-workgroup">
+<h2>POST - Add Workgroup<a class="headerlink" href="#post-add-workgroup" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#Workgroup-object-label">Workgroup object</a> containing the Workgroup address to add</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/Workgroup/api</p>
+<p><strong>Input</strong> &#8211;&gt; <a class="reference external" href="#Workgroup-object-label">Workgroup object</a></p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#Workgroup-object-label">Workgroup object</a> which got added.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="targets.html" title="Notifications - Targets"
+             >previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Sreeni Puthiyillam.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    </div>
+  </body>
+</html>

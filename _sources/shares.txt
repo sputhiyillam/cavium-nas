@@ -13,182 +13,30 @@ Share Object
 The following represents a share object::
 
     [
-      {
-        "id": "",
+     {
+        "encrypt": false,
         "name": "",
-        "description": "",
+        "id": 1,
         "volume": {
-          "name": "",
-          "id": "",
-          "size": "",
-          "used": "",
-          "status": "",
-          "encrypted": false
+            "id": "1"
         },
-        "public": false,
-        "cifs": {
-          "enabled": true,
-          "readonly": {
-            "users":[
-              {
-                "name": "",
-                "id": ""
-              }
-            ],
-            "groups": [
-              {
-                "name": "",
-                "id": ""
-              },
-            ]
-          },
-          "fullaccess": {
-            "users":[
-              {
-                "name": "",
-                "id": ""
-              }
-            ],
-            "groups": [
-              {
-                "name": "",
-                "id": ""
-              },
-            ]
-          },
-          "noaccess": {
-            "users":[
-              {
-                "name": "",
-                "id": ""
-              }
-            ],
-            "groups": [
-              {
-                "name": "",
-                "id": ""
-              },
-            ]
-          }
+        "rbm": false,
+        "services": {
+            "ftp": false,
+            "cifs": false,
+            "DLNA": true,
+            "itunes": true,
+            "nfs": false,
+            "afp": false
         },
-        "afp": {
-          "enabled": true,
-          "readonly": {
-            "users":[
-              {
-                "name": "",
-                "id": ""
-              }
-            ],
-            "groups": [
-              {
-                "name": "",
-                "id": ""
-              },
-            ]
-          },
-          "fullaccess": {
-            "users":[
-              {
-                "name": "",
-                "id": ""
-              }
-            ],
-            "groups": [
-              {
-                "name": "",
-                "id": ""
-              },
-            ]
-          },
-          "noaccess": {
-            "users":[
-              {
-                "name": "",
-                "id": ""
-              }
-            ],
-            "groups": [
-              {
-                "name": "",
-                "id": ""
-              },
-            ]
-          }
+        "permissions": {
+            "ips": [],
+            "users": [],
+            "groups": []
         },
-        "nfs": {
-          "enabled": true,
-          "ips": [
-          ""
-          ]
-        },
-        "ftp": {
-          "enabled": true,
-          "users":[
-            {
-              "name": "",
-              "id": ""
-            }
-          ],
-          "groups": [
-            {
-              "name": "",
-              "id": ""
-            },
-          ]
-        },
-        "webdav": {
-          "enabled": true,
-          "readonly": {
-            "users":[
-              {
-                "name": "",
-                "id": ""
-              }
-            ],
-            "groups": [
-              {
-                "name": "",
-                "id": ""
-              },
-            ]
-          },
-          "fullaccess": {
-            "users":[
-              {
-                "name": "",
-                "id": ""
-              }
-            ],
-            "groups": [
-              {
-                "name": "",
-                "id": ""
-              },
-            ]
-          },
-          "noaccess": {
-            "users":[
-              {
-                "name": "",
-                "id": ""
-              }
-            ],
-            "groups": [
-              {
-                "name": "",
-                "id": ""
-              },
-            ]
-          }
-        },
-        "recycle_bin": {
-          "enabled": false
-        },
-        "media_service": {
-          "enabled": false
-        }
-      }
+        "public": true,
+        "description": ""
+     }
     ]
 
 **Share Object Details**
@@ -210,114 +58,37 @@ The following represents a share object::
 | volume         | Brief info of the volume on which the share is created.  |
 |                |                                                          |
 |                +-----------+----------------------------------------------+
-|                | name      | Name of the volume.                          |
-|                |           |                                              |
-|                +-----------+----------------------------------------------+
 |                | id        | Unique primary key id of the volume.         |
-|                |           |                                              |
-|                +-----------+----------------------------------------------+
-|                | size      | Size of the volume in bytes.                 |
-|                |           |                                              |
-|                +-----------+----------------------------------------------+
-|                | used      | Size of the volume used in bytes.            |
-|                |           |                                              |
-|                +-----------+----------------------------------------------+
-|                | status    | Status of the volume as specified in         |
-|                |           | :ref:`Volume Status <vol-status>`.           |
-|                |           |                                              |
-|                +-----------+----------------------------------------------+
-|                | encrypted |  **Boolean** value which says whether a      |
-|                |           |  volume is encrypted or not.                 |
 |                |           |                                              |
 +----------------+-----------+----------------------------------------------+
 | public         | **Boolean** value which tells whether the share is       |
 |                | public or private.                                       |
-+----------------+----------------------------------------------------------+
-| cifs/afp/      | Details of CIFS/AFP/Webdav services in the share.        |
-| webdav         |                                                          |
-|                +-----------+----------------------------------------------+
-|                | enabled   | **Boolean** value which says whether the     |
-|                |           | service is enabled for this share.           |
-|                |           |                                              |
-|                +-----------+----------------------------------------------+
-|                | readonly  | Details of users and groups with readonly    |
-|                |           | access.                                      |
-|                |           |                                              |
-|                |           +----------+--------+--------------------------+
-|                |           | users    | **Array** of users.               |
-|                |           |          +--------+--------------------------+
-|                |           |          | name   | Name of the user         |
-|                |           |          +--------+--------------------------+
-|                |           |          | id     | Unique id of the user    |
-|                |           |          +--------+--------------------------+
-|                |           | groups   | **Array** of groups.              |
-|                |           |          +--------+--------------------------+
-|                |           |          | name   | Name of the group        |
-|                |           |          +--------+--------------------------+
-|                |           |          | id     | Unique id of the group   |
-|                +-----------+----------+--------+--------------------------+
-|                | fullaccess| Details of users and groups with full access.|
-|                |           |                                              |
-|                |           +----------+--------+--------------------------+
-|                |           | users    | **Array** of users.               |
-|                |           |          +--------+--------------------------+
-|                |           |          | name   | Name of the user         |
-|                |           |          +--------+--------------------------+
-|                |           |          | id     | Unique id of the user    |
-|                |           |          +--------+--------------------------+
-|                |           | groups   | **Array** of groups.              |
-|                |           |          +--------+--------------------------+
-|                |           |          | name   | Name of the group        |
-|                |           |          +--------+--------------------------+
-|                |           |          | id     | Unique id of the group   |
-|                +-----------+----------+--------+--------------------------+
-|                | noaccess  | Details of users and groups with no access.  |
-|                |           |                                              |
-|                |           +----------+--------+--------------------------+
-|                |           | users    | **Array** of users.               |
-|                |           |          +--------+--------------------------+
-|                |           |          | name   | Name of the user         |
-|                |           |          +--------+--------------------------+
-|                |           |          | id     | Unique id of the user    |
-|                |           |          +--------+--------------------------+
-|                |           | groups   | **Array** of groups.              |
-|                |           |          +--------+--------------------------+
-|                |           |          | name   | Name of the group        |
-|                |           |          +--------+--------------------------+
-|                |           |          | id     | Unique id of the group   |
-+----------------+-----------+----------+--------+--------------------------+
-| ftp            | Details of FTP services in the share.                    |
++----------------+-----------+----------------------------------------------+
+| services       | Details of Service in the share.                         |
 |                |                                                          |
 |                +-----------+----------------------------------------------+
-|                | enabled   | **Boolean** value which says whether FTP     |
+|                | ftp       | **Boolean** value which says whether         |
 |                |           | service is enabled for this share.           |
 |                |           |                                              |
 |                +-----------+----------------------------------------------+
-|                | users     | **Array** of users.                          |
-|                |           +--------+-------------------------------------+
-|                |           | name   | Name of the user                    |
-|                |           +--------+-------------------------------------+
-|                |           | id     | Unique id of the user               |
-|                |           +--------+-------------------------------------+
-|                | groups    | **Array** of groups.                         |
-|                |           +--------+-------------------------------------+
-|                |           | name   | Name of the group                   |
-|                |           +--------+-------------------------------------+
-|                |           | id     | Unique id of the group              |
-+----------------+-----------+--------+-------------------------------------+
-| nfs            | Details of NFS services in the share.                    |
-|                |                                                          |
-|                +-----------+----------------------------------------------+
-|                | enabled   | **Boolean** value which says whether NFS     |
+|                | cifs      | **Boolean** value which says whether         |
 |                |           | service is enabled for this share.           |
 |                |           |                                              |
 |                +-----------+----------------------------------------------+
-|                | readonly  | **Array** of IP addresses with readonly      |
-|                |           | permissions.                                 |
+|                | DLNA      | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
 |                |           |                                              |
 |                +-----------+----------------------------------------------+
-|                | readwrite | **Array** of IP addresses with readwrite     |
-|                |           | permissions.                                 |
+|                | itunes    | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | nfs       | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | afp       | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
 |                |           |                                              |
 +----------------+-----------+----------------------------------------------+
 | recycle_bin    | Details of Recycle Bin in the share.                     |
@@ -327,11 +98,16 @@ The following represents a share object::
 |                |           | service is enabled for this share.           |
 |                |           |                                              |
 +----------------+-----------+----------------------------------------------+
-| media_service  | Details of Media Services in the share.                  |
+| permissions    | Details of permission in the share.                      |
 |                |                                                          |
 |                +-----------+----------------------------------------------+
-|                | enabled   | **Boolean** value which says whether         |
-|                |           | service is enabled for this share.           |
+|                | ips       |  This is a rray of ips                       |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | users     | Array of user with permission                |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | groups    | Array of groups with permission              |
 |                |           |                                              |
 +----------------+-----------+----------------------------------------------+
 

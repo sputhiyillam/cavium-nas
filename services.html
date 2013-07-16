@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -13,7 +12,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '0.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -109,10 +108,16 @@
         <span class="s">&quot;ssltls&quot;</span><span class="p">:</span> <span class="n">true</span>
     <span class="p">},</span>
     <span class="s">&quot;upnp&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s">&quot;media&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">&quot;DLNA&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s">&quot;afp&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
     <span class="s">&quot;nfs&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
-    <span class="s">&quot;webdav&quot;</span><span class="p">:</span> <span class="n">true</span>
+    <span class="s">&quot;webdav&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+    <span class="s">&quot;itunes&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;enabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;sync_time&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="s">&quot;password_protected&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+        <span class="s">&quot;password&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
+    <span class="p">},</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -121,68 +126,87 @@
 <colgroup>
 <col width="22%" />
 <col width="15%" />
-<col width="63%" />
+<col width="11%" />
+<col width="51%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Name</th>
-<th class="head" colspan="2">Value</th>
+<th class="head" colspan="3">Value</th>
 </tr>
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>id</td>
-<td colspan="2"><dl class="first last docutils">
+<td colspan="3"><dl class="first last docutils">
 <dt>The primary key unique id by which the service can be</dt>
 <dd>identified</dd>
 </dl>
 </td>
 </tr>
 <tr class="row-odd"><td rowspan="4">http</td>
-<td colspan="2">HyperText Transfer Protocol</td>
+<td colspan="3">HyperText Transfer Protocol</td>
 </tr>
 <tr class="row-even"><td>port</td>
-<td>http default and custom port</td>
+<td colspan="2">http default and custom port</td>
 </tr>
 <tr class="row-odd"><td>ssl</td>
-<td><strong>Boolean</strong> it says ssl support true or false</td>
+<td colspan="2"><strong>Boolean</strong> it says ssl support true or false</td>
 </tr>
 <tr class="row-even"><td>ssl port</td>
-<td>https default and custom  port</td>
+<td colspan="2">https default and custom  port</td>
 </tr>
 <tr class="row-odd"><td rowspan="5">ftp</td>
-<td colspan="2">File Transfer Protocol</td>
+<td colspan="3">File Transfer Protocol</td>
 </tr>
 <tr class="row-even"><td>port</td>
-<td>http default and custom port</td>
+<td colspan="2">http default and custom port</td>
 </tr>
 <tr class="row-odd"><td>ssltls</td>
-<td><strong>Boolean</strong> it says ssltls true or false</td>
+<td colspan="2"><strong>Boolean</strong> it says ssltls true or false</td>
 </tr>
 <tr class="row-even"><td>enable</td>
-<td><strong>Boolean</strong> it says ftp is enabled or not</td>
+<td colspan="2"><strong>Boolean</strong> it says ftp is enabled or not</td>
 </tr>
 <tr class="row-odd"><td>anonymous</td>
-<td><strong>Boolean</strong> it says ftp anonymouse access
+<td colspan="2"><strong>Boolean</strong> it says ftp anonymouse access
 is enabled or not.</td>
 </tr>
 <tr class="row-even"><td>upnp</td>
-<td colspan="2">Universal Plug N Play  <strong>Boolean</strong>
+<td colspan="3">Universal Plug N Play  <strong>Boolean</strong>
 It says upnp service enabled or not</td>
 </tr>
 <tr class="row-odd"><td>webdav</td>
-<td colspan="2">Web Distributed Authoring and Versioning  <strong>Boolean</strong>
+<td colspan="3">Web Distributed Authoring and Versioning  <strong>Boolean</strong>
 It says webdav service enabled or not</td>
 </tr>
 <tr class="row-even"><td>nfs</td>
-<td colspan="2">Network file system   <strong>Boolean</strong>
+<td colspan="3">Network file system   <strong>Boolean</strong>
 It says nfs service enabled or not</td>
 </tr>
 <tr class="row-odd"><td>afp</td>
-<td colspan="2">Apple Filing Protocol    <strong>Boolean</strong>
+<td colspan="3">Apple Filing Protocol    <strong>Boolean</strong>
 It says nfs service enabled or not</td>
 </tr>
-<tr class="row-even"><td>media</td>
-<td colspan="2">Media service   <strong>Boolean</strong>
+<tr class="row-even"><td>DLNA</td>
+<td colspan="3">Media service   <strong>Boolean</strong>
 It says media service enabled or not</td>
+</tr>
+<tr class="row-odd"><td rowspan="5">iTunes</td>
+<td colspan="3">iTunes is a media player application  by Apple Inc.</td>
+</tr>
+<tr class="row-even"><td colspan="2">enabled</td>
+<td><strong>Boolean</strong>  it says iTune enabled
+or not</td>
+</tr>
+<tr class="row-odd"><td colspan="2">sync_time</td>
+<td>says sync time in  miunutes</td>
+</tr>
+<tr class="row-even"><td colspan="2">password_protected</td>
+<td>it says PWD is enabled
+or not  <strong>Boolean</strong></td>
+</tr>
+<tr class="row-odd"><td colspan="2">Password</td>
+<td>This object will say the password
+details of iTunes</td>
 </tr>
 </tbody>
 </table>
@@ -232,7 +256,7 @@ in the NAS device.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Sreeni Puthiyillam.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>
