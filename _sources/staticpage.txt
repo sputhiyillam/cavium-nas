@@ -1,9 +1,0 @@
-.. _static-label:
-
-===========
-Static Page
-===========
-The static page api exposes interfaces related to claim and update firmware at initiatial state in the the NAS device.
-
-.. note::
-      Will be added soon..
