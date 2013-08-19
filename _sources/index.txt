@@ -1,9 +1,9 @@
-.. TurboNAS  documentation master file, created by
+.. TurboSTOR  documentation master file, created by
    sphinx-quickstart on Sun Mar  3 12:21:54 2013.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to TurboNAS 's documentation!
+Welcome to TurboSTOR 's documentation!
 =======================================
 .. image:: nas.jpg
    :height: 300px
@@ -34,6 +34,8 @@ Contents:
     interface
     ddns
     workgroup
+    backup
+    staticpage
 
 
 
