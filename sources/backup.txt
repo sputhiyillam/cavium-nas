@@ -1,0 +1,291 @@
+.. _backup-label:
+
+=======
+Backup
+=======
+The backup api exposes interfaces related to backup to store and retrive data in the the NAS device.
+
+.. _backup-object-label:
+
+Backup Object
+--------------
+
+The following represents a configure backup object::
+
+    {
+        "enabled": true,
+        "sharing": true,
+        "bandwidth": "1024",
+        "max_connections": "0",
+        "users_credential": {
+            "add": [
+                {
+                    "username": "user2",
+                    "password": "pass2"
+                }
+            ],
+            "remove": [
+                "user1"
+            ]
+        }
+    }
+
+**Backup Configure Object Details**
+
++-----------------+----------------------------------------------------------+
+| Name            | Value                                                    |
+|                 |                                                          |
++=================+==========================================================+
+| enabled         | **Boolean** enabled or not                               |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| sharing         | **Boolean** enabled or not                               |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| max_connection  |  Maximum number of backup connection                     |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| bandwidth       | The default bandwidth 1024, which allow to configure net |
+|                 |  work bandwidth                                          |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| users_credential| This is the user credential which need for validation    |
+|                 +-----------+----------------------------------------------+
+|                 |    add    | Array of username and password               |
+|                 |           +----------------------------------------------+
+|                 |           | username  |     Added username               |
+|                 |           +-----------+----------------------------------+
+|                 |           | password  |   Added user password            |
+|                 +-----------+-----------+----------------------------------+
+|                 |    remove |   Array of removed user                      |
++-----------------+----------------------------------------------------------+
+
+
+
+GET Backup
+----------
+Returns `Backup object <#backup-object-label>`_ containing the backup credential present
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/backup/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Backup objects <#backup-object-label>`_
+
+Output JSON
+-----------
+
+The following represents a output JSON object::
+
+    {
+        "status": "Success",
+        "id": "",
+        "errors": []
+    }
+
+.. _backup-target-label:
+
+Add target Object
+-----------------
+
+The following represents a add target backup object::
+
+    [
+        {
+            "name": "target1",
+            "location": "/VolumeData/vol1",
+            "users": [
+                "user1",
+                "user2"
+            ]
+        }
+    ]
+    
+**Add Backup Target Object Details**
+
++-----------------+----------------------------------------------------------+
+| Name            | Value                                                    |
+|                 |                                                          |
++=================+==========================================================+
+| name            | Target current name                                      |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| location        | Current location of the target                           |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| users           |  Array of users which belongs to this target             |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+
+GET Target
+----------
+Returns `Add target Object <#backup-target-label>`_ containing the backup target present
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/backup/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Add target Object <#backup-target-label>`_
+    
+
+Output JSON
+-----------
+
+The following represents a output JSON object::
+
+    {
+        "status": "Success",
+        "id": "",
+        "errors": []
+    }
+    
+Edit Target
+-----------
+
+The following represents a edit JSON object::
+
+    [
+        {
+            "name": "target1",
+            "users": [
+                "user1",
+                "user2"
+            ]
+        }
+    ]
+    
+    
+Get Remote Targets
+------------------
+
+The following represents a add target backup object::
+
+    [
+        {
+           "ip": "10.82.2.11",
+           "targets": [
+               "target1",
+               "target1"
+            ]
+        }
+    ]
+    
+    
+**Add Remote Target Object Details**
+
++-----------------+----------------------------------------------------------+
+| Name            | Value                                                    |
+|                 |                                                          |
++=================+==========================================================+
+| ip              | IP of remote target                                      |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| target          | The array or list of target                              |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+
+.. _backup-source-label:
+
+Get Source
+----------
+
+The following represents a get source backup object::
+
+    {
+        "type": "usb/nas",
+        "start": 0,
+        "path": "",
+        "count": 50
+    }
+    
+**Get Source Object Details**
+
++-----------------+----------------------------------------------------------+
+| Name            | Value                                                    |
+|                 |                                                          |
++=================+==========================================================+
+| type            | This is the user specified type USB or NAS               |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| start           | This depicts the backup start or not                     |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| path            | This depicts the backup path                             |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| count           | This depicts the backup count                            |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+
+Output JSON
+-----------
+
+The following represents a get source output JSON object::
+
+    {
+        "name": "usb1",
+        "type": "folder"
+    }
+    
+.. _backup-source-label:
+  
+Get Destination
+---------------
+Destination `Get Source <#backup-source-label>`_ objects
+
+
+The following represents a get destination backup object::
+
+    {
+        "type": "usb/nas",
+        "start": 0,
+        "path": "",
+        "count": 50
+    }
+    
+**Get Destination Object Details**
+
++-----------------+----------------------------------------------------------+
+| Name            | Value                                                    |
+|                 |                                                          |
++=================+==========================================================+
+| type            | This is the user specified type USB or NAS               |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| start           | This depicts the backup start or not                     |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| path            | This depicts the backup path                             |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| count           | This depicts the backup count                            |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+
+Output JSON
+-----------
+The following represents a get destination output object::
+
+    [
+        "local": [
+            {
+                "name": "share1",
+                "is_dir": "true"
+            }      
+        ]
+        "remote": [
+            {
+                "name": "TurboSTOR-da72",
+                "ip": "10.82.2.193",
+                "targets": [
+                    "alias1",
+                    "alias2"
+                ]
+            }
+        ]
+    ]
+    
+.. note::
+     Test connection and add task will be added soon.

@@ -1,0 +1,181 @@
+======
+iSCSI
+======
+The shares api exposes interfaces related to shares present in the the NAS device.
+
+.. _iscsi-object-label:
+
+iSCSI Service Object
+--------------------
+
+The following represents a iscsi service object::
+
+    [
+      {
+        
+        "id": "",
+        "iscsi": true,
+        "port": "",
+        "isns": true,
+        "isns-address": ""
+        
+      }
+    ]
+    
+iSCSI Target Object
+-------------------
+
+The following represents a iscsi target object::
+
+    [
+      {
+        "id": "",
+        "target": "",
+        "size": "",
+        "type": "",
+        "volume": "",
+        "header-digest": true,
+        "data-digest": false,
+        "one-way-chap": {
+            "enabled": true,
+            "username": "",
+            "password": ""
+        },
+        "mutual-chap": {
+            "enabled": false,
+            "username": "",
+            "password": ""
+        }
+      }
+    ]
+
+**Storage Object Details**
+
++----------------+----------------------------------------------------------+
+| Name           | Value                                                    |
+|                |                                                          |
++================+==========================================================+
+| iSCSI          | Internet Small Computer Systems Interface (iSCSI)        |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| id             | The primary key unique id by which the iscsi target share|
+|                | can be identified                                        |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| target         | Target of iSCSI share                                    |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| size           | Size of the iSCSI share                                  |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| type           | This is says the  storage type is File or Block          |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| volume         | Volume of creatd iSCSI share                             |
+|                |                                                          |
++----------------+-----------+----------------------------------------------+
+| header-digest  | **Boolean** value which tells whether the header digest  |
+|                | is enabled or not.                                       |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| data-digest    | **Boolean** value which tells whether the data digest    |
+|                | is enabled or not.                                       |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| one-way-chap   |  With this level of security,                            |
+|                | only the iSCSI target authenticates the initiator.       |
+|                | The secret is set just for the target. All initiators    |
+|                | that want to access that target need to use the same     |
+|                | secret to start a logon session with the target.         |
+|                |                                                          |
+|                +-----------+----------------------------------------------+
+|                | enabled   | **Boolean** value which says whether         |
+|                |           | one-way chap enabled or not                  |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | username  | Username of one-way chap                     |
+|                |           |                                              |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | Password  | Password of one-way chap                     |
+|                |           |                                              |
++----------------+----------------------------------------------------------+
+| mutual-chap    |  With this level of security,   the iSCSI target         |
+|                |   and the initiator authenticate each other.             |
+|                +-----------+----------------------------------------------+
+|                | enabled   | **Boolean** value which says whether         |
+|                |           | mutual  chap enabled or not                  |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | username  | Username of mutual  chap                     |
+|                |           |                                              |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | Password  | Password of mutual  chap                     |
+|                |           |                                              |
++----------------+----------------------------------------------------------+
+| iscsi service  |  This should be set to enable to access iscsi service    |
+|                +-----------+----------------------------------------------+
+|                |           |  The primary key unique id by which          |
+|                | id        |  the iscsi service can be  identified        |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                |           |                                              |
+|                | enabled   | **Boolean** value which says whether         |
+|                |           | iscsi service enabled or not                 |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                |           | iSCSI uses TCP   ports 860 and 3260          |
+|                | port      |                                              |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                |           | isns (Internet Storage Name Service ).       |
+|                | isns      | **Boolean** value which says whether         |
+|                |           | isns service enabled or not                  |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | address   | The IP address of isns service               |
+|                |           |                                              |
++----------------+----------------------------------------------------------+
+
+GET iSCSI Shares
+----------------
+Returns `iSCSI Share object <#iscsi-object-label>`_ containing the iscsi shares present
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/iscsi_shares/api
+
+    **Input** --> None
+
+    **Response** --> Array of `iSCSI Share objects <#iscsi-object-label>`_
+
+POST - Create iSCSI Share 
+-------------------------
+Takes `iSCSI Share object <#iscsi-object-label>`_ containing the share to create.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/iscsi_shares/api
+
+    **Input** --> `iSCSI Share object <#iscsi-object-label>`_
+
+    **Response** --> `iSCSI Share object <#iscsi-object-label>`_ which got created with a new `id`.
+
+DELETE - Delete iSCSI Share
+---------------------------
+Takes `iSCSI Share object <#iscsi-object-label>`_ containing the share to delete.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/iscsi_shares/api
+
+    **Input** --> `iSCSI Share object <#iscsi-object-label>`_
+
+    **Response** --> `iSCSI Share object <#iscsi-object-label>`_ which got deleted.
+
+PUT - Edit iSCSI Share
+----------------------
+Takes `iSCSI Share object <#share-object-label>`_ containing the share to edit.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/iscsi_shares/api
+
+    **Input** --> `iSCSI Share object <#iscsi-object-label>`_
+
+    **Response** --> `iSCSI Share object <#iscsi-object-label>`_ which got edited.
+

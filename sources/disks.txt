@@ -1,0 +1,209 @@
+
+.. _disks-label:
+
+=====
+Disks
+=====
+The disks api exposes interfaces related to disks present in the the NAS device.
+
+.. _disk-object-label:
+
+Disk Object
+------------
+
+The following represents a disk object::
+
+    [
+      {
+        "id": "",
+        "name": "",
+        "description": "",
+        "path": "",
+        "size": "",
+        "uuid": "",
+        "status": "",
+        "vendor": "",
+        "volumes": [
+          {
+            "name": "",
+            "id": "",
+            "size": "",
+            "used": "",
+            "status": "",
+            "encrypted": false
+          }
+        ],
+        "temperature": "",
+        "model": "",
+        "serial": "",
+        "smart": {
+            "enabled": true,
+            "smart_status": "",
+            "progress":""
+        },
+        "actions": {
+          "eject": true,
+          "claim": true
+        }
+      }
+    ]
+
+.. note::
+      By default all values are strings. If the value is an array or boolean,
+      it would be mentioned.
+
+**Disk Object Details**
+
++----------------+----------------------------------------------------------+
+| Name           | Value                                                    |
+|                |                                                          |
++================+==========================================================+
+| id             | The primary key unique id by which the disk can be       |
+|                | identified                                               |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| name           | The name of the disk                                     |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| description    | Description of the disk                                  |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| path           | The physical path of the disk in the NAS device.         |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| size           | Total size of the disk in bytes.                         |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| uuid           | Unique hardware id of the disk.                          |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+|                |                                                          |
+|                | .. _disk-status:                                         |
+|                |                                                          |
+| status         | Status of the disk. Can be one of the four values        |
+|                |                                                          |
+|                | - good                                                   |
+|                |                                                          |
+|                | - bad                                                    |
+|                |                                                          |
+|                | - foreign                                                |
+|                |                                                          |
+|                | - uninstalled                                            |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| vendor         | Manufacturing vendor of the disk.                        |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| volumes        | **Array** containing brief information of volumes        |
+|                | created in this disk.                                    |
+|                |                                                          |
+|                +-----------+----------------------------------------------+
+|                | name      | The name of the volume.                      |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | id        | The primary key unique id by which           |
+|                |           | volume can be identified.                    |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | size      | Total size of the volume in bytes.           |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | used      | Size of the volume used in bytes.            |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | status    | Status of the volume as described in         |
+|                |           | :ref:`Volume Status <vol-status>`.           |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | encrypted | **Boolean** value which says whether a       |
+|                |           | volume is encrypted or not.                  |
+|                |           |                                              |
++----------------+-----------+----------------------------------------------+
+| temperature    | Temperature of the disk.                                 |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| model          | Model of the disk.                                       |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| serial         | Disk manufacturer serial                                 |
+|                | number.                                                  |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| smart          | Self-Monitoring, Analysis and Reporting Technology       |
+|                | System details                                           |
+|                +------------+---------------------------------------------+
+|                | status     | Overall S. M. A. R. T health status of the  |
+|                |            | disk                                        |
+|                |            |                                             |
+|                +------------+---------------------------------------------+
+|                | enabled    | Currently avaialable status of S.M.A.R.T    |
+|                |            |                                             |
+|                +------------+---------------------------------------------+
+|                | Progress   | Currently avaialable progress of S.M.A.R.T  |
+|                |            |                                             |
++----------------+------------+-----------+---------------------------------+
+| actions        | Actions which can be done on the disk.                   |
+|                |                                                          |
+|                +-----------+----------------------------------------------+
+|                | eject     | **Boolean** value which says whether         |
+|                |           | ejecting this disk is possible.              |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | claim     | **Boolean** value which says whether         |
+|                |           | claiming this disk is possible.              |
+|                |           |                                              |
++----------------+----------------------------------------------------------+
+
+**Error messages**
+
+Error messages will be of the format described in :ref:`error-message`.
+
+=============== =================================================
+    Code                            Description                         
+=============== =================================================
+    100             Operation not allowed. Used for validation,
+                    or blocking an action because another action
+                    is going on.
+    101             Unable to complete the action. Used for
+                    internal errors.
+=============== =================================================
+
+GET - Disks
+------------
+Returns `Disk object <#disk-object-label>`_ containing the disks present
+in the NAS device.
+
+    **Resource URL** --> <nas-box-ip-address>/index.php/disks/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Disk objects <#disk-object-label>`_
+
+PUT - Claim Disk
+-----------------
+Takes `Disk object <#disk-object-label>`_ containing the disk to claim. The
+API claims the foreign disk. 
+
+.. note::
+    Operation can be performed only on foreign disks.
+
+..
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/disks/api
+
+    **Input** --> `Disk object <#disk-object-label>`_
+
+    **Response** --> `Disk object <#disk-object-label>`_ which got claimed.
+
+POST - Eject Disk
+-----------------
+Takes `Disk object <#disk-object-label>`_ containing the disk to eject.
+The API ejects the disk safely.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/disks/api
+
+    **Input** --> `Disk object <#disk-object-label>`_
+
+    **Response** --> `Disk object <#disk-object-label>`_ which got ejected.
+
+
