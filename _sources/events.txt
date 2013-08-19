@@ -1,0 +1,117 @@
+.. _events-label:
+
+======================
+Notifications - Events
+======================
+The events api exposes interfaces related to events present in the the NAS device.
+
+.. _events-object-label:
+
+Events Object
+-------------
+
+The following represents a events object::
+
+    {
+        "targets": {
+            "lcd": "on",
+            "led": "on",
+            "email": "on",
+            "logs": "on"
+        },
+        "events": [
+            {
+                "status": "on",
+                "led_enabled": false,
+                "name": "Permissions_Changed",
+                "email_recipients": [],
+                "module": "Shares",
+                "log_enabled": true,
+                "email_enabled": true,
+                "logfile": "/home/turbonas/logs/shares.log",
+                "lcd_enabled": false,
+                "id": 22
+            }
+        ]
+    }
+
+**Events Object Details**
+
++----------------+-----------------------------------------------------------------+
+| Name           | Value                                                           |  
+|                |                                                                 |
++================+=================================================================+
+| id             | The primary key unique id by which the UI can be                |
+|                | Tracked                                                         |
+|                |                                                                 |
++----------------+-----------------------------------------------------------------+
+| targets        | This object conatians various log and event config              |
+|                +------------------+----------------------------------------------+
+|                | lcd              | This event will allow to get an event on LCD |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | led              |  This event will allow to get an event on LED|
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | email            | This event will allow to get an event on     |
+|                |                  | email                                        |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | logs             | This event will allow to get an event on logs|
+|                |                  |                                              |
++----------------+------------------+----------------------------------------------+
+| events         | This array object will display  following object details        |
+|                +------------------+----------------------------------------------+
+|                | status           | This says status is on or off                |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | led_enbld        |  This event says led enabled or not          |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | name             | Name of the evenet disk usage 80% etc.       |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | email_recipients | Array of email recipients                    |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | module           |  This says event present on which module     |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | log_enabled      | **Boolean** log enabled or not               |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | email_enabled    | **Boolean** email enabled or not             |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | logfile          |  Location of log file                        |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | lcd_enabled      | **Boolean** lcd event enabled or not         |
+|                |                  |                                              |
+|                +------------------+----------------------------------------------+
+|                | id               | This is the id of particular event           |
+|                |                  |                                              |
++----------------+------------------+----------------------------------------------+
+
+GET Events
+------------
+Returns `Events object <#events-object-label>`_ containing the events present
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/events/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Events objects <#events-object-label>`_
+
+POST - Save Events
+---------------------
+Takes `Events object <#events-object-label>`_ containing the Events to display.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/events/api
+
+    **Input** --> `Events object <#event-object-label>`_
+
+    **Response** --> `Events object <#Events-object-label>`_
+
+

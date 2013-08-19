@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Notifications - Events &mdash; TurboNAS  0.2.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="TurboNAS  0.2.4 documentation" href="index.html" />
+    <link rel="next" title="Notifications - Targets" href="targets.html" />
+    <link rel="prev" title="General Setup" href="general.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="targets.html" title="Notifications - Targets"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="general.html" title="General Setup"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.2.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Notifications - Events</a><ul>
+<li><a class="reference internal" href="#events-object">Events Object</a></li>
+<li><a class="reference internal" href="#get-events">GET Events</a></li>
+<li><a class="reference internal" href="#post-save-events">POST - Save Events</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="general.html"
+                        title="previous chapter">General Setup</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="targets.html"
+                        title="next chapter">Notifications - Targets</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/events.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="notifications-events">
+<span id="events-label"></span><h1>Notifications - Events<a class="headerlink" href="#notifications-events" title="Permalink to this headline">¶</a></h1>
+<p>The events api exposes interfaces related to events present in the the NAS device.</p>
+<div class="section" id="events-object">
+<span id="events-object-label"></span><h2>Events Object<a class="headerlink" href="#events-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a events object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;targets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s">&quot;lcd&quot;</span><span class="p">:</span> <span class="s">&quot;on&quot;</span><span class="p">,</span>
+        <span class="s">&quot;led&quot;</span><span class="p">:</span> <span class="s">&quot;on&quot;</span><span class="p">,</span>
+        <span class="s">&quot;email&quot;</span><span class="p">:</span> <span class="s">&quot;on&quot;</span><span class="p">,</span>
+        <span class="s">&quot;logs&quot;</span><span class="p">:</span> <span class="s">&quot;on&quot;</span>
+    <span class="p">},</span>
+    <span class="s">&quot;events&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;on&quot;</span><span class="p">,</span>
+            <span class="s">&quot;led_enabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;Permissions_Changed&quot;</span><span class="p">,</span>
+            <span class="s">&quot;email_recipients&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="s">&quot;module&quot;</span><span class="p">:</span> <span class="s">&quot;Shares&quot;</span><span class="p">,</span>
+            <span class="s">&quot;log_enabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s">&quot;email_enabled&quot;</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+            <span class="s">&quot;logfile&quot;</span><span class="p">:</span> <span class="s">&quot;/home/turbonas/logs/shares.log&quot;</span><span class="p">,</span>
+            <span class="s">&quot;lcd_enabled&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+            <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">22</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Events Object Details</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="23%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head" colspan="2">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td colspan="2">The primary key unique id by which the UI can be
+Tracked</td>
+</tr>
+<tr class="row-odd"><td rowspan="5">targets</td>
+<td colspan="2">This object conatians various log and event config</td>
+</tr>
+<tr class="row-even"><td>lcd</td>
+<td>This event will allow to get an event on LCD</td>
+</tr>
+<tr class="row-odd"><td>led</td>
+<td>This event will allow to get an event on LED</td>
+</tr>
+<tr class="row-even"><td>email</td>
+<td>This event will allow to get an event on
+email</td>
+</tr>
+<tr class="row-odd"><td>logs</td>
+<td>This event will allow to get an event on logs</td>
+</tr>
+<tr class="row-even"><td rowspan="11">events</td>
+<td colspan="2">This array object will display  following object details</td>
+</tr>
+<tr class="row-odd"><td>status</td>
+<td>This says status is on or off</td>
+</tr>
+<tr class="row-even"><td>led_enbld</td>
+<td>This event says led enabled or not</td>
+</tr>
+<tr class="row-odd"><td>name</td>
+<td>Name of the evenet disk usage 80% etc.</td>
+</tr>
+<tr class="row-even"><td>email_recipients</td>
+<td>Array of email recipients</td>
+</tr>
+<tr class="row-odd"><td>module</td>
+<td>This says event present on which module</td>
+</tr>
+<tr class="row-even"><td>log_enabled</td>
+<td><strong>Boolean</strong> log enabled or not</td>
+</tr>
+<tr class="row-odd"><td>email_enabled</td>
+<td><strong>Boolean</strong> email enabled or not</td>
+</tr>
+<tr class="row-even"><td>logfile</td>
+<td>Location of log file</td>
+</tr>
+<tr class="row-odd"><td>lcd_enabled</td>
+<td><strong>Boolean</strong> lcd event enabled or not</td>
+</tr>
+<tr class="row-even"><td>id</td>
+<td>This is the id of particular event</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-events">
+<h2>GET Events<a class="headerlink" href="#get-events" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#events-object-label">Events object</a> containing the events present
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/events/api</p>
+<p><strong>Input</strong> &#8211;&gt; None</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#events-object-label">Events objects</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="post-save-events">
+<h2>POST - Save Events<a class="headerlink" href="#post-save-events" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#events-object-label">Events object</a> containing the Events to display.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/events/api</p>
+<p><strong>Input</strong> &#8211;&gt; <a class="reference external" href="#event-object-label">Events object</a></p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#Events-object-label">Events object</a></p>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="targets.html" title="Notifications - Targets"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="general.html" title="General Setup"
+             >previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.2.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Sreeni Puthiyillam.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    </div>
+  </body>
+</html>

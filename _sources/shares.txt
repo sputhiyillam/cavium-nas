@@ -1,0 +1,154 @@
+.. _shares-label:
+
+======
+Shares
+======
+The shares api exposes interfaces related to shares present in the the NAS device.
+
+.. _share-object-label:
+
+Share Object
+-------------
+
+The following represents a share object::
+
+    [
+     {
+        "encrypt": false,
+        "name": "",
+        "id": 1,
+        "volume": {
+            "id": "1"
+        },
+        "rbm": false,
+        "services": {
+            "ftp": false,
+            "cifs": false,
+            "DLNA": true,
+            "itunes": true,
+            "nfs": false,
+            "afp": false
+        },
+        "permissions": {
+            "ips": [],
+            "users": [],
+            "groups": []
+        },
+        "public": true,
+        "description": ""
+     }
+    ]
+
+**Share Object Details**
+
++----------------+----------------------------------------------------------+
+| Name           | Value                                                    |
+|                |                                                          |
++================+==========================================================+
+| id             | The primary key unique id by which the share can be      |
+|                | identified                                               |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| name           | The name of the share                                    |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| description    | Description of the share                                 |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| volume         | Brief info of the volume on which the share is created.  |
+|                |                                                          |
+|                +-----------+----------------------------------------------+
+|                | id        | Unique primary key id of the volume.         |
+|                |           |                                              |
++----------------+-----------+----------------------------------------------+
+| public         | **Boolean** value which tells whether the share is       |
+|                | public or private.                                       |
++----------------+-----------+----------------------------------------------+
+| services       | Details of Service in the share.                         |
+|                |                                                          |
+|                +-----------+----------------------------------------------+
+|                | ftp       | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | cifs      | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | DLNA      | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | itunes    | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | nfs       | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | afp       | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
+|                |           |                                              |
++----------------+-----------+----------------------------------------------+
+| recycle_bin    | Details of Recycle Bin in the share.                     |
+|                |                                                          |
+|                +-----------+----------------------------------------------+
+|                | enabled   | **Boolean** value which says whether         |
+|                |           | service is enabled for this share.           |
+|                |           |                                              |
++----------------+-----------+----------------------------------------------+
+| permissions    | Details of permission in the share.                      |
+|                |                                                          |
+|                +-----------+----------------------------------------------+
+|                | ips       |  This is a rray of ips                       |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | users     | Array of user with permission                |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | groups    | Array of groups with permission              |
+|                |           |                                              |
++----------------+-----------+----------------------------------------------+
+
+GET Shares
+------------
+Returns `Share object <#share-object-label>`_ containing the shares present
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/shares/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Share objects <#share-object-label>`_
+
+POST - Create Share 
+---------------------
+Takes `Share object <#share-object-label>`_ containing the share to create.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/shares/api
+
+    **Input** --> `Share object <#share-object-label>`_
+
+    **Response** --> `Share object <#share-object-label>`_ which got created with a new `id`.
+
+DELETE - Delete Share
+-----------------------
+Takes `Share object <#share-object-label>`_ containing the share to delete.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/shares/api
+
+    **Input** --> `Share object <#share-object-label>`_
+
+    **Response** --> `Share object <#share-object-label>`_ which got deleted.
+
+PUT - Edit Share
+---------------------
+Takes `Share object <#share-object-label>`_ containing the share to edit.
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/shares/api
+
+    **Input** --> `Share object <#share-object-label>`_
+
+    **Response** --> `Share object <#share-object-label>`_ which got edited.
+

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Device &mdash; TurboNAS  0.2.4 documentation</title>
+    
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.4',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="TurboNAS  0.2.4 documentation" href="index.html" />
+    <link rel="next" title="RBM" href="rbm.html" />
+    <link rel="prev" title="Network" href="network.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="rbm.html" title="RBM"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="network.html" title="Network"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.2.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Device</a><ul>
+<li><a class="reference internal" href="#firmware-object">Firmware Object</a></li>
+<li><a class="reference internal" href="#firmware-progress-object">Firmware Progress Object</a></li>
+<li><a class="reference internal" href="#get-firmware-setup">GET Firmware setup</a></li>
+<li><a class="reference internal" href="#get-firmware-progress">GET - Firmware Progress</a></li>
+<li><a class="reference internal" href="#set-firmware-preferences">SET Firmware Preferences</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="network.html"
+                        title="previous chapter">Network</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="rbm.html"
+                        title="next chapter">RBM</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/device.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="device">
+<h1>Device<a class="headerlink" href="#device" title="Permalink to this headline">¶</a></h1>
+<p>The device api is contain object of firmware progress and firmware setup details.</p>
+<div class="section" id="firmware-object">
+<span id="firmware-object-label"></span><h2>Firmware Object<a class="headerlink" href="#firmware-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a get firmware object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;version&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;release_notes&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;update_method&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;update_schedule&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;is_available&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="firmware-progress-object">
+<span id="firmware-progress-object-label"></span><h2>Firmware Progress Object<a class="headerlink" href="#firmware-progress-object" title="Permalink to this headline">¶</a></h2>
+<p>The following represents a firmware progress object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span>
+    <span class="s">&quot;status&quot;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+    <span class="s">&quot;progress&quot;</span> <span class="p">:</span> <span class="s">&quot;40 %&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Firmware Object Details</strong></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="15%" />
+<col width="62%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head" colspan="2">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>description</td>
+<td colspan="2">Description about current firmware</td>
+</tr>
+<tr class="row-odd"><td>version</td>
+<td colspan="2">Firmware version details</td>
+</tr>
+<tr class="row-even"><td>update_available</td>
+<td colspan="2">This will display is update is currently avaialble or not</td>
+</tr>
+<tr class="row-odd"><td>release_notes</td>
+<td colspan="2">Details of currently available update</td>
+</tr>
+<tr class="row-even"><td rowspan="6">update_method</td>
+<td colspan="2">This object is contain following upadte methos  .</td>
+</tr>
+<tr class="row-odd"><td>manual</td>
+<td><strong>Boolean</strong> value which says whether
+manual update enabled or not</td>
+</tr>
+<tr class="row-even"><td>scheduled</td>
+<td><strong>Boolean</strong> value which says whether
+scheduled update enabled or not</td>
+</tr>
+<tr class="row-odd"><td>ask</td>
+<td><dl class="first last docutils">
+<dt><strong>Boolean</strong> value which says whether</dt>
+<dd>ask when update become availabel
+update enabled or not</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td>never</td>
+<td><dl class="first last docutils">
+<dt><strong>Boolean</strong> value which says whether</dt>
+<dd>never update option enabled or not</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td colspan="2"><dl class="first last docutils">
+<dt>time      | This object is for scheduled update time</dt>
+<dd><div class="first last line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td>status</td>
+<td colspan="2"><dl class="first last docutils">
+<dt>This object which says firmware upgrade is running or not</dt>
+<dd>updating, not_updating,failed,success, no_update ,these
+are the values for status key</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td>progress</td>
+<td colspan="2">current progress of running firmware</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="get-firmware-setup">
+<h2>GET Firmware setup<a class="headerlink" href="#get-firmware-setup" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#firmware-object-label">Firmware object</a> containing the firmware setup details.
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/firmware_update/api</p>
+<p><strong>Input</strong> &#8211;&gt; None</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#firmware-object-label">Firmware objects</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="get-firmware-progress">
+<h2>GET - Firmware Progress<a class="headerlink" href="#get-firmware-progress" title="Permalink to this headline">¶</a></h2>
+<p>Takes <a class="reference external" href="#firmware-progress-object-label">Firmware object</a></p>
+<blockquote>
+<div><p><strong>Resource URL</strong> &#8211;&gt; &lt;nas_box_ip_address&gt;/index.php/firmware_update/api</p>
+<p><strong>Input</strong> &#8211;&gt; None</p>
+<p><strong>Response</strong> &#8211;&gt; <a class="reference external" href="#firmware-progress-object-label">Firmware Progress object</a> Containing the firmware progress details.</p>
+<p>The firmware progress status contains &#8220;updating&#8221;, &#8220;not_updating&#8221;, &#8220;failed&#8221;, &#8220;success&#8221; and &#8220;no_update&#8221; values.</p>
+</div></blockquote>
+</div>
+<div class="section" id="set-firmware-preferences">
+<h2>SET Firmware Preferences<a class="headerlink" href="#set-firmware-preferences" title="Permalink to this headline">¶</a></h2>
+<p>Returns <a class="reference external" href="#firmware-object-label">Firmware object</a> containing the firmware setup details.
+in the NAS device.</p>
+<blockquote>
+<div><p><strong>Resource URL</strong> <a class="reference external" href="http:/">http:/</a>/&lt;nas_box_ip_address&gt;/index.php/firmware_update/api</p>
+<p><strong>Input</strong> &#8211;&gt; UI Changed values. update_method =&#8221;ask/scheduled/manual/never&#8221;</p>
+<p><strong>Response</strong> &#8211;&gt; Array of <a class="reference external" href="#firmware-object-label">Firmware objects</a></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">UI only send changed values. In present case, UI will send update_method value. If update method is scheduled then UI will send the time details also.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="rbm.html" title="RBM"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="network.html" title="Network"
+             >previous</a> |</li>
+        <li><a href="index.html">TurboNAS  0.2.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Sreeni Puthiyillam.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    </div>
+  </body>
+</html>

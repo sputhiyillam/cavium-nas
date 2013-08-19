@@ -1,0 +1,140 @@
+========
+Services
+========
+The services api exposes interfaces related to all protocol services  in the the NAS device. 
+
+.. _services-object-label:
+
+Services Object
+---------------
+
+The following represents a service object::
+
+    {
+        "id": 1,
+        "http": {
+            "port": 80,
+            "ssl_support": true,
+            "ssl_port": 8009
+        },
+        "ftp": {
+            "enable": true,
+            "anonymous": true,
+            "port": 8001,
+            "ssltls": true
+        },
+        "upnp": true,
+        "DLNA": true,
+        "afp": true,
+        "nfs": true,
+        "webdav": true,
+        "itunes": {
+            "enabled": true,
+            "sync_time": "",
+            "password_protected": true,
+            "password": ""
+        },
+    }
+
+**Quota Object Details**
+
++----------------+----------------------------------------------------------+
+| Name           | Value                                                    |
+|                |                                                          |
++================+==========================================================+
+| id             | The primary key unique id by which the service can be    |
+|                |    identified                                            |
++----------------+----------------------------------------------------------+
+| http           |  HyperText Transfer Protocol                             |
+|                |                                                          |
+|                +-----------+----------------------------------------------+
+|                | port      | http default and custom port                 |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | ssl       | **Boolean** it says ssl support true or false|
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | ssl port  |  https default and custom  port              |
+|                |           |                                              |
++----------------+-----------+----------------------------------------------+
+| ftp            |  File Transfer Protocol                                  |
+|                |                                                          |
+|                +-----------+----------------------------------------------+
+|                | port      | http default and custom port                 |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | ssltls    | **Boolean** it says ssltls true or false     | 
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | enable    |   **Boolean** it says ftp is enabled or not  |
+|                |           |                                              |
+|                +-----------+----------------------------------------------+
+|                | anonymous | **Boolean** it says ftp anonymouse access    |
+|                |           | is enabled or not.                           |
+|                |           |                                              |
++----------------+-----------+----------------------------------------------+
+| upnp           |   Universal Plug N Play  **Boolean**                     |
+|                |   It says upnp service enabled or not                    |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| webdav         |  Web Distributed Authoring and Versioning  **Boolean**   |
+|                |  It says webdav service enabled or not                   |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| nfs            |  Network file system   **Boolean**                       |
+|                |  It says nfs service enabled or not                      |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| afp            |  Apple Filing Protocol    **Boolean**                    |
+|                |  It says nfs service enabled or not                      |
+|                |                                                          |
++----------------+----------------------------------------------------------+
+| DLNA           |  Media service   **Boolean**                             |
+|                |  It says media service enabled or not                    |
+|                |                                                          |
++----------------+--------------------+-------------------------------------+
+| iTunes         |  iTunes is a media player application  by Apple Inc.     |
+|                |                                                          |
+|                +--------------------+-------------------------------------+
+|                | enabled            | **Boolean**  it says iTune enabled  |
+|                |                    | or not                              |
+|                |                    |                                     |
+|                +--------------------+-------------------------------------+
+|                | sync_time          |  says sync time in  miunutes        |
+|                |                    |                                     | 
+|                |                    |                                     |
+|                +--------------------+-------------------------------------+
+|                | password_protected |   it says PWD is enabled            |
+|                |                    |   or not  **Boolean**               |
+|                |                    |                                     |
+|                +--------------------+-------------------------------------+
+|                | Password           | This object will say the password   |
+|                |                    | details of iTunes                   |
+|                |                    |                                     |
++----------------+--------------------+-------------------------------------+
+
+
+
+GET service details
+-------------------
+Returns `Services object <#services-object-label>`_ containing the service details
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/service/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Services objects <#services-object-label>`_
+
+SET service details
+-------------------
+Returns `Services object <#service-object-label>`_ containing the service details
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/service/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Services objects <#services-object-label>`_
+
+

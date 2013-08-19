@@ -1,0 +1,123 @@
+======
+Device
+======
+The device api is contain object of firmware progress and firmware setup details.
+
+.. _firmware-object-label:
+
+Firmware Object
+--------------------
+
+The following represents a get firmware object::
+
+    
+    {
+        "id": 1,
+        "description": "",
+        "version": "",
+        "release_notes": "",
+        "update_method": "",
+        "update_schedule": "",
+        "is_available": false
+    }
+    
+    
+.. _firmware-progress-object-label:    
+    
+Firmware Progress Object
+------------------------
+
+The following represents a firmware progress object::
+
+    {
+        "status": "",
+        "progress" : "40 %"
+    }
+
+**Firmware Object Details**
+
++-----------------+----------------------------------------------------------+
+| Name            | Value                                                    |
+|                 |                                                          |
++=================+==========================================================+
+| description     | Description about current firmware                       |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| version         | Firmware version details                                 |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| update_available| This will display is update is currently avaialble or not|
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| release_notes   | Details of currently available update                    |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| update_method   |  This object is contain following upadte methos  .       |
+|                 |                                                          |
+|                 +-----------+----------------------------------------------+
+|                 | manual    | **Boolean** value which says whether         |
+|                 |           | manual update enabled or not                 |
+|                 |           |                                              |
+|                 +-----------+----------------------------------------------+
+|                 | scheduled | **Boolean** value which says whether         |
+|                 |           | scheduled update enabled or not              |
+|                 |           |                                              |
+|                 +-----------+----------------------------------------------+
+|                 | ask       | **Boolean** value which says whether         |
+|                 |           |    ask when update become availabel          |
+|                 |           |    update enabled or not                     |
+|                 +-----------+----------------------------------------------+
+|                 | never     | **Boolean** value which says whether         |
+|                 |           |     never update option enabled or not       |
+|                 +-----------+----------------------------------------------+
+|                 | time      | This object is for scheduled update time     |
+|                 |           |                                              |
++-----------------+----------------------------------------------------------+
+| status          | This object which says firmware upgrade is running or not|
+|                 |  updating, not_updating,failed,success, no_update ,these |
+|                 |  are the values for status key                           |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+| progress        | current progress of running firmware                     |
+|                 |                                                          |
++-----------------+----------------------------------------------------------+
+
+
+GET Firmware setup
+------------------
+Returns `Firmware object <#firmware-object-label>`_ containing the firmware setup details.
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/firmware_update/api
+
+    **Input** --> None
+
+    **Response** --> Array of `Firmware objects <#firmware-object-label>`_
+
+GET - Firmware Progress
+-----------------------
+Takes `Firmware object <#firmware-progress-object-label>`_ 
+
+    **Resource URL** --> <nas_box_ip_address>/index.php/firmware_update/api
+
+    **Input** --> None
+
+    **Response** --> `Firmware Progress object <#firmware-progress-object-label>`_ Containing the firmware progress details.
+    
+    The firmware progress status contains "updating", "not_updating", "failed", "success" and "no_update" values. 
+    
+
+SET Firmware Preferences
+------------------------
+Returns `Firmware object <#firmware-object-label>`_ containing the firmware setup details.
+in the NAS device.
+
+    **Resource URL** http://<nas_box_ip_address>/index.php/firmware_update/api
+
+    **Input** --> UI Changed values. update_method ="ask/scheduled/manual/never"
+
+    **Response** --> Array of `Firmware objects <#firmware-object-label>`_
+
+.. note ::
+
+  UI only send changed values. In present case, UI will send update_method value. If update method is scheduled then UI will send the time details also.
