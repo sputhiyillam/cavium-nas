@@ -1,24 +1,29 @@
+
 <!DOCTYPE html>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Static Page &mdash; TurboSTOR v0.3.0 documentation</title>
+    <title>Setup Page &mdash; TurboSTOR 0.3.0 documentation</title>
+    
     <link rel="stylesheet" href="_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '#',
+        URL_ROOT:    '',
         VERSION:     '0.3.0',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="TurboSTOR v0.3.0 documentation" href="index.html" />
+    <link rel="top" title="TurboSTOR 0.3.0 documentation" href="index.html" />
     <link rel="prev" title="Backup" href="backup.html" /><link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="_static/solarized-dark.css" rel="stylesheet">
   </head>
@@ -32,47 +37,47 @@
         <li class="right" >
           <a href="backup.html" title="Backup"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">TurboSTOR v0.3.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">TurboSTOR 0.3.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="#">Static Page</a><ul>
-<li><a class="reference external" href="#disk-info-object">Disk Info Object</a></li>
-<li><a class="reference external" href="#disk-claim-progress-object">Disk claim progress Object</a></li>
-<li><a class="reference external" href="#firmware-file-object">Firmware file Object</a></li>
-<li><a class="reference external" href="#firmware-progress-object">Firmware progress Object</a></li>
-<li><a class="reference external" href="#set-disk-claim">Set Disk Claim</a></li>
-<li><a class="reference external" href="#get-disk-claim-progress">Get Disk Claim Progress</a></li>
-<li><a class="reference external" href="#start-firmware-update">Start Firmware Update</a></li>
-<li><a class="reference external" href="#get-firmware-progress">Get Firmware Progress</a></li>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Setup Page</a><ul>
+<li><a class="reference internal" href="#disk-info-object">Disk Info Object</a></li>
+<li><a class="reference internal" href="#disk-claim-progress-object">Disk claim progress Object</a></li>
+<li><a class="reference internal" href="#firmware-file-object">Firmware file Object</a></li>
+<li><a class="reference internal" href="#firmware-progress-object">Firmware progress Object</a></li>
+<li><a class="reference internal" href="#set-disk-claim">Set Disk Claim</a></li>
+<li><a class="reference internal" href="#get-disk-claim-progress">Get Disk Claim Progress</a></li>
+<li><a class="reference internal" href="#start-firmware-update">Start Firmware Update</a></li>
+<li><a class="reference internal" href="#get-firmware-progress">Get Firmware Progress</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="backup.html"
-                                  title="previous chapter">Backup</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/staticpage.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="backup.html"
+                        title="previous chapter">Backup</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/setuppage.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -81,9 +86,9 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="static-page">
-<span id="static-label"></span><h1>Static Page<a class="headerlink" href="#static-page" title="Permalink to this headline">¶</a></h1>
-<p>The static page api exposes interfaces related to claim and update firmware at initiatial state in the the NAS device.</p>
+  <div class="section" id="setup-page">
+<span id="setup-label"></span><h1>Setup Page<a class="headerlink" href="#setup-page" title="Permalink to this headline">¶</a></h1>
+<p>The setup page api exposes interfaces related to claim and update firmware at initiatial state in the the NAS device.</p>
 <div class="section" id="disk-info-object">
 <span id="staticpage-object-label"></span><h2>Disk Info Object<a class="headerlink" href="#disk-info-object" title="Permalink to this headline">¶</a></h2>
 <p>The following represents a disk info object:</p>
@@ -105,30 +110,30 @@
 <col width="77%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Name</th>
 <th class="head">Value</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>status</td>
+<tr class="row-even"><td>status</td>
 <td>Current status of the disk</td>
 </tr>
-<tr><td>vendor</td>
+<tr class="row-odd"><td>vendor</td>
 <td>Vendor name</td>
 </tr>
-<tr><td>name</td>
+<tr class="row-even"><td>name</td>
 <td>Disk number , HDD1 or HDD2 etc.</td>
 </tr>
-<tr><td>model</td>
+<tr class="row-odd"><td>model</td>
 <td>Disk model name</td>
 </tr>
-<tr><td>size</td>
+<tr class="row-even"><td>size</td>
 <td>Total size of the files</td>
 </tr>
-<tr><td>id</td>
+<tr class="row-odd"><td>id</td>
 <td>Unique identification number</td>
 </tr>
-<tr><td>serial</td>
+<tr class="row-even"><td>serial</td>
 <td>Disk serial number</td>
 </tr>
 </tbody>
@@ -153,24 +158,24 @@
 <col width="77%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Name</th>
 <th class="head">Value</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>id</td>
+<tr class="row-even"><td>id</td>
 <td>Unique identification number</td>
 </tr>
-<tr><td>name</td>
+<tr class="row-odd"><td>name</td>
 <td>Disk number , HDD1 or HDD2 etc.</td>
 </tr>
-<tr><td>status</td>
+<tr class="row-even"><td>status</td>
 <td>failed/claimed/in-progress/not-started</td>
 </tr>
-<tr><td>percentage</td>
+<tr class="row-odd"><td>percentage</td>
 <td>Progress percentage of claim process</td>
 </tr>
-<tr><td>error</td>
+<tr class="row-even"><td>error</td>
 <td><dl class="first last docutils">
 <dt>if any error it might be  on of the following:</dt>
 <dd>Disk Health Error,Disk Partition Error,Disk Format Error
@@ -197,15 +202,15 @@ Disk Insufficient Size Error, Disk RAID Build Error</dd>
 <col width="77%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Name</th>
 <th class="head">Value</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>fw_file</td>
+<tr class="row-even"><td>fw_file</td>
 <td>.IMG file</td>
 </tr>
-<tr><td>checksum_file</td>
+<tr class="row-odd"><td>checksum_file</td>
 <td>md5 checksum of img file</td>
 </tr>
 </tbody>
@@ -227,18 +232,18 @@ Disk Insufficient Size Error, Disk RAID Build Error</dd>
 <col width="77%" />
 </colgroup>
 <thead valign="bottom">
-<tr><th class="head">Name</th>
+<tr class="row-odd"><th class="head">Name</th>
 <th class="head">Value</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr><td>status</td>
+<tr class="row-even"><td>status</td>
 <td>success/failed/updating</td>
 </tr>
-<tr><td>percentage</td>
+<tr class="row-odd"><td>percentage</td>
 <td>Progress percentage of firmware process</td>
 </tr>
-<tr><td>error</td>
+<tr class="row-even"><td>error</td>
 <td>If any error</td>
 </tr>
 </tbody>
@@ -285,11 +290,12 @@ Output&#8211;&gt; objects firmware_progress</p>
         <li class="right" >
           <a href="backup.html" title="Backup"
              >previous</a> |</li>
-        <li><a href="index.html">TurboSTOR v0.3.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">TurboSTOR 0.3.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.4.Theme by <a href="http://github.com/vkvn">vkvn</a>
+        &copy; Copyright 2013, sputhiyillam@mvista.com.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>

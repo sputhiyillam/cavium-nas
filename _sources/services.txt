@@ -137,4 +137,12 @@ in the NAS device.
 
     **Response** --> Array of `Services objects <#services-object-label>`_
 
+.. note::
+    Please note  UPNP API call  get Succes /Error, And it will display all avaialble device in the network
 
+Output JSON::
+
+    {
+        status: "Success/Error",
+        errors: "" 
+    }

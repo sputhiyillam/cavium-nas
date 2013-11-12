@@ -118,3 +118,257 @@ Takes `Network object <#network-object-label>`_ containing the interface to edit
 
     **Response** --> `Network object <#network-object-label>`_ which got edited.
 
+**Printer**
+
+The printer api exposes printer related all services in the the NAS device. 
+
+.. _printer-object-label:
+
+Printer Objects
+---------------
+
+The following represents a printer objects::
+
+    {
+        "id": 1,
+        "spooler_volume_path": "/VolumeData/volume1",
+        "printers": [
+            {
+                "name": "Canon_MX410_series_USB_1",
+                "description": "MFP printer",
+                "location": "Local Printer",
+                "printer_state": "idle",
+                "is_shared": "1",
+                "accepting_jobs": "1"
+            }
+        ]
+    }
+
+**Printer Object Details**
+
++---------------------+----------------------------------------------------------+
+| Name                | Value                                                    |
+|                     |                                                          |
++=====================+==========================================================+
+| id                  | The primary key unique id by which the printer can be    |
+|                     |    identified                                            |
++---------------------+----------------------------------------------------------+
+|                     |  This object contains current volume spooler path        |
+| spooler_volume_path |                                                          |
++---------------------+----------------------------------------------------------+
+| printers            |  This object conatins all available printers             |
+|                     |                                                          |
+|                     +----------------+-----------------------------------------+
+|                     | name           | Printer name                            |
+|                     |                |                                         |
+|                     +----------------+-----------------------------------------+
+|                     | description    | Printer description                     |
+|                     |                |                                         |
+|                     +----------------+-----------------------------------------+
+|                     | printer_state  | This object conatins "printing" and     |
+|                     |                | "idle" state.                           |
+|                     |                |                                         |
+|                     +----------------+-----------------------------------------+
+|                     | is_shared      | **Boolean**  by default value is "1"    |
+|                     |                | it depict printer is shared or not.     |
+|                     |                |                                         |
+|                     +----------------+-----------------------------------------+
+|                     | accepting_jobs | **Boolean** it depict prinitng jobs.    |
+|                     |                | It have either rejected or accepted     |
++---------------------+----------------+-----------------------------------------+
+
+Pause printer API
+-----------------
+
+Input JSON ::
+
+    {
+        "printer_name": "<name of the printer>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }
+    
+Resume printer API
+------------------
+
+Input JSON ::
+
+    {
+        "printer_name": "<name of the printer>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }
+
+Reject jobs API
+---------------
+
+Input JSON ::
+
+    {
+        "printer_name": "<name of the printer>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }
+
+Accept jobs API
+---------------
+
+Input JSON ::
+
+    {
+        "printer_name": "<name of the printer>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }
+    
+Cancel all jobs API
+-------------------
+
+Input JSON ::
+
+    {
+        "printer_name": "<name of the printer>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }
+
+**Following is the Printer jobs related API's**
+
+GET jobs details
+----------------
+
+Input JSON ::
+
+    {
+        "printer_name": "<name of the printer>"
+    }
+
+Output JSON ::
+
+    [
+        {
+            "id": 1,
+            "user": "user1",
+            "title": "document.pdf",
+            "state": "processing since Thu Aug 22 14:58:42 2013/pending"
+        }
+    ]
+    
+    
+Cancel jobs API
+----------------
+
+Input JSON ::
+
+    {
+        "job_id": "<Unique id of the job>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }
+
+Hold jobs API
+--------------
+
+Input JSON ::
+
+    {
+        "job_id": "<Unique id of the job>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }
+
+Release jobs API
+----------------
+
+Input JSON ::
+
+    {
+        "job_id": "<Unique id of the job>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }
+    
+**Following is spooler related API's**
+
+
+Set spooler details
+-------------------
+
+Input JSON ::
+
+    {
+        "spooler_volume_path": "<file path>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }
+
+Clean spooler setings
+---------------------
+
+Input JSON ::
+
+    {
+        "spooler_volume_path": "<file path>"
+    }
+
+
+Output JSON :: 
+
+    {
+        "status": "Success",
+        "errors": []
+    }

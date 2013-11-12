@@ -1,9 +1,9 @@
-.. _static-label:
+.. _setup-label:
 
 ===========
-Static Page
+Setup Page
 ===========
-The static page api exposes interfaces related to claim and update firmware at initiatial state in the the NAS device.
+The setup page api exposes interfaces related to claim and update firmware at initiatial state in the the NAS device.
 
 .. _staticpage-object-label:
 

@@ -1,19 +1,20 @@
-.. TurboSTOR documentation master file, created by
-   sphinx-quickstart on Fri Aug 23 16:54:03 2013.
+.. TurboSTOR  documentation master file, created by
+   sphinx-quickstart on Sun Mar  3 12:21:54 2013.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to TurboSTOR's documentation!
-=====================================
-.. image:: nas.jpg
-   :height: 300px
-   :width: 300 px
+Welcome to TurboSTOR documentation!
+===================================
+.. image:: nas1.jpeg
+   :height: 500px
+   :width: 500 px
    :scale: 80 %
    :align: right
-
+   
 Contents:
 
 .. toctree::
+
     intro
     responses
     storage
@@ -35,14 +36,11 @@ Contents:
     ddns
     workgroup
     backup
-    staticpage
-
-
+    setuppage
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 

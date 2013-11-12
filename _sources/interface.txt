@@ -39,7 +39,7 @@ The following represents a firewall object::
 | ip             | IP address                                               |
 |                |                                                          |
 +----------------+----------------------------------------------------------+
-| type           |  value which says whether the current                    |
+| type           | value which says whether the current                     |
 |                | ip address is  allowed or denyed                         |
 |                |                                                          |
 +----------------+----------------------------------------------------------+
@@ -182,7 +182,7 @@ Takes `Firewal object <#ddns-object-label>`_ containing the url address to add
 
     **Response** --> `DDNS object <#ddns-object-label>`_ which got added.
     
-.. _ddns-label:
+.. _workgroup-label:
 
 =========
 Workgroup
@@ -265,7 +265,7 @@ in the NAS device.
 
     **Input** --> None
 
-    **Response** --> Array of `DDNS objects <#ddns-object-label>`_
+    **Response** --> Array of `Workgroup objects <#ddns-object-label>`_
 
 POST - Add Workgroup
 --------------------
@@ -276,6 +276,16 @@ Takes `Workgroup object <#Workgroup-object-label>`_ containing the Workgroup add
     **Input** --> `Workgroup object <#Workgroup-object-label>`_
 
     **Response** --> `Workgroup object <#Workgroup-object-label>`_ which got added.
+
+.. note::
+    Please note ADS refresh API call refresh_ads_users_groups and get Succes /Error
+
+Output JSON::
+
+    {
+        status: "Success/Error",
+        errors: "" 
+    }
     
     
 
